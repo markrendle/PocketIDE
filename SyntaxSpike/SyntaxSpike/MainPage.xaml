@@ -34,7 +34,7 @@
                        FontFamily="Courier New"
                        FontSize="16"
                        Margin="20"/>
-            <TextBox x:Name="TheTextBox"
+            <TextBox x:Name="CodeTextBox"
                        FontSize="16"
                      FontFamily="Courier New"
                      Background="Transparent"

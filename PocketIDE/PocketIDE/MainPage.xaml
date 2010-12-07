@@ -26,7 +26,7 @@
                     Grid.Row="0"
                     Margin="12,17,0,28">
             <TextBlock x:Name="ApplicationTitle"
-                       Text="POCKET IDE"
+                       Text="POCKET C#"
                        Style="{StaticResource PhoneTextNormalStyle}" />
             <TextBlock x:Name="PageTitle"
                        Text="code"
@@ -37,36 +37,22 @@
               Grid.Row="1"
               DataContext="{Binding CodeEditorViewModel}"
               Background="{StaticResource PhoneChromeBrush}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            
-            <TextBox Grid.Row="1"
-                     x:Name="CodeTextBox"
+            <Border Background="White" />
+            <TextBlock x:Name="ColorTextBlock"
+                       Foreground="Black"
+                       FontFamily="Courier New"
+                       FontSize="18"
+                       Margin="20" />
+            <TextBox x:Name="CodeTextBox"
                      FontSize="18"
                      FontFamily="Courier New"
+                     Background="Transparent"
+                     Foreground="Transparent"
+                     TextChanged="CodeTextBoxTextChanged"
+                     AcceptsReturn="True"
                      Text="{Binding Code, Mode=TwoWay}"
-
-                     AcceptsReturn="True" />
-            <TextBlock Grid.Row="1"
-                       x:Name="ResultsText"
-                       FontFamily="Courier New"
-                       Text="{Binding Output}"
-                       Visibility="Collapsed" />
-            <!--<StackPanel Grid.Row="2"
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Right">
-                <Button x:Name="RunButton"
-                        Click="RunButtonClick">
-                    <TextBlock>Run</TextBlock>
-                </Button>
-                <Button x:Name="MsdnButton"
-                        Click="MsdnButtonClick">
-                    <TextBlock>MSDN</TextBlock>
-                </Button>
-            </StackPanel>-->
+                     Style="{StaticResource TransparentTextBoxStyle}">
+            </TextBox>
         </Grid>
     </Grid>
     <toolkit:TransitionService.NavigationInTransition>
@@ -101,18 +87,18 @@
                                             IconUri="/Icons/appbar.questionmark.rest.png"
                                             Text="MSDN"
                                             Click="MsdnButtonClick"/>
-            <shell:ApplicationBarIconButton x:Name="FontSizeUpButton"
-                                            IconUri="/Icons/fontsize.up.png"
-                                            Text="Font"
-                                            Click="FontSizeUpButtonClick"/>
+            <shell:ApplicationBarIconButton x:Name="ExpandSnippetButton"
+                                            IconUri="/Icons/appbar.expand.png"
+                                            Text="Expand"
+                                            Click="ExpandSnippetButtonClick"/>
             <shell:ApplicationBarIconButton x:Name="FontSizeDownButton"
                                             IconUri="/Icons/fontsize.down.png"
-                                            Text="Font"
+                                            Text="Smaller Font"
                                             Click="FontSizeDownButtonClick"/>
-            <!--<shell:ApplicationBar.MenuItems>
+            <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
                 <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
-            </shell:ApplicationBar.MenuItems>-->
+            </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 

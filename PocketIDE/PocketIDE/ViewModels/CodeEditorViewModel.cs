@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Net;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -8,6 +9,7 @@ using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PocketIDE.ViewModels
@@ -16,12 +18,7 @@ namespace PocketIDE.ViewModels
     {
         public CodeEditorViewModel()
         {
-            Code = @"using System;
-class Program {
-  public static void Main() {
-    Console.WriteLine(""IDE in a Phone!"");
-  }
-}";
+            Code = "using System;\rclass Program {\r  public static void Main() {\r    Console.WriteLine(\"IDE in a Phone!\");\r  }\r}";
         }
 
         public string Code { get; set; }

@@ -21,7 +21,6 @@ namespace MsdnHtml
         private static bool IsRegionArea(HtmlNode node)
         {
             if (node.FirstChild == null) return false;
-            var div = 
             return node.FirstChild.GetAttributeValue("class", "") == "regionArea";
         }
     }

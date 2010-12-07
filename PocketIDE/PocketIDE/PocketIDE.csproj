@@ -65,7 +65,9 @@
     </Compile>
     <Compile Include="Extensions\EventHandlerExtensions.cs" />
     <Compile Include="Extensions\MaybeXElement.cs" />
+    <Compile Include="Extensions\TextBoxExtensions.cs" />
     <Compile Include="Extensions\XmlLinqExtensions.cs" />
+    <Compile Include="HashSet.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -82,6 +84,9 @@
     <Compile Include="Services\Bing.cs" />
     <Compile Include="Services\BingSearchCompletedEventArgs.cs" />
     <Compile Include="Services\BingSearchResult.cs" />
+    <Compile Include="Snippet.cs" />
+    <Compile Include="SnippetExpander.cs" />
+    <Compile Include="SyntaxHighlighter.cs" />
     <Compile Include="ViewModels\CodeEditorViewModel.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -127,6 +132,7 @@
     <Content Include="Icons\appbar.add.rest.png" />
     <Content Include="Icons\appbar.back.rest.png" />
     <Content Include="Icons\appbar.cancel.rest.png" />
+    <Content Include="Icons\appbar.expand.png" />
     <Content Include="Icons\appbar.feature.settings.rest.png" />
     <Content Include="Icons\appbar.questionmark.rest.png" />
     <Content Include="Icons\appbar.refresh.rest.png" />

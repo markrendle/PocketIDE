@@ -29,13 +29,13 @@ namespace SyntaxSpike
 
         private void TheTextBoxTextChanged(object sender, TextChangedEventArgs e)
         {
-            if (TheTextBox.Text.EndsWith(". ") && _key1 == Key.Space && _key2 == Key.Space)
+            if (CodeTextBox.Text.EndsWith(". ") && _key1 == Key.Space && _key2 == Key.Space)
             {
-                TheTextBox.Text = TheTextBox.Text.Remove(TheTextBox.Text.Length - 2) + "  ";
+                CodeTextBox.Text = CodeTextBox.Text.Remove(CodeTextBox.Text.Length - 2) + "  ";
             }
             else
             {
-                _highlighter.Highlight(TheTextBox.Text);
+                _highlighter.Highlight(CodeTextBox.Text);
             }
         }
 
