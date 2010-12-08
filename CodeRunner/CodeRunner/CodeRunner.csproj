@@ -74,13 +74,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MsdnController.cs" />
-    <Compile Include="Controllers\RunController.cs" />
+    <Compile Include="Controllers\CodeController.cs" />
     <Compile Include="Data\CloudStorageHelper.cs" />
     <Compile Include="Data\ProcessMsdnContentQueue.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Msdn\ContentProcessor.cs" />
+    <Compile Include="Msdn\DocumentProcessor.cs" />
+    <Compile Include="Msdn\HtmlDocumentExtensions.cs" />
+    <Compile Include="MvcUtil\RequireRouteValuesAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +130,15 @@
       <Project>{193BB801-054F-4729-9D5D-FCE1E32594BF}</Project>
       <Name>HtmlAgilityPack</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Code\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Code\Code.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

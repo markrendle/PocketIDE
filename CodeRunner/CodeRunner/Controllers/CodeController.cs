@@ -6,13 +6,27 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using CodeRunner.MvcUtil;
 using Microsoft.CSharp;
 
 namespace CodeRunner.Controllers
 {
-    public class RunController : Controller
+    public class CodeController : Controller
     {
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        [RequireRouteValues("id")]
+        public ActionResult Index(string id)
+        {
+            return View("Code");
+        }
+        //
+        // POST: /Run/Create
+
+        public ActionResult Run()
         {
             const string code = @"using System;
 class Program {
@@ -22,11 +36,9 @@ class Program {
             }";
             return Content(CompileAndRun(code), "text/text");
         }
-        //
-        // POST: /Run/Create
 
         [HttpPost]
-        public ActionResult Create(string code)
+        public ActionResult Run(string code)
         {
             code = Encoding.UTF8.GetString(Convert.FromBase64String(code));
             return Content(CompileAndRun(code), "text/text");
@@ -44,11 +56,10 @@ class Program {
                     compiled = csc.CompileAssemblyFromSource(parameters, code);
                 }
 
-
                 if (compiled.Errors.HasErrors)
                 {
                     var builder = new StringBuilder();
-                    builder.AppendLine("Errors:");
+                    builder.AppendLine("Compilation error:");
                     compiled.Errors.Cast<CompilerError>()
                         .Select(ce => ce.ErrorText)
                         .ToList()

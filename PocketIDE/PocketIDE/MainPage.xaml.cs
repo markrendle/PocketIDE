@@ -30,11 +30,6 @@ namespace PocketIDE
             DataContext = App.ViewModel;
         }
 
-        static void UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
-        {
-            App.ViewModel.CodeEditorViewModel.Output = e.Result;
-        }
-
         private void MsdnButtonClick(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/MsdnSearchPage.xaml", UriKind.Relative));
@@ -44,18 +39,9 @@ namespace PocketIDE
         {
             App.ViewModel.CodeEditorViewModel.Output = "Running...";
             App.ViewModel.CodeEditorViewModel.Code = CodeTextBox.Text;
-            var encoded = Convert.ToBase64String(Encoding.UTF8.GetBytes(App.ViewModel.CodeEditorViewModel.Code));
-            var json = string.Format(@"{{""code"":""{0}""}}", encoded);
-            var webClient = new WebClient();
-            webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
-            webClient.UploadStringCompleted += UploadStringCompleted;
-            webClient.UploadStringAsync(new Uri("http://pocketide.cloudapp.net/Run/Create"), json);
-            NavigationService.Navigate(new Uri("/BuildRunOutput.xaml", UriKind.Relative));
-        }
 
-        private void FontSizeUpButtonClick(object sender, EventArgs e)
-        {
-            ColorTextBlock.FontSize = CodeTextBox.FontSize += 2.0;
+            new CodeRunner(App.ViewModel.CodeEditorViewModel).Run();
+            NavigationService.Navigate(new Uri("/BuildRunOutput.xaml", UriKind.Relative));
         }
 
         private void FontSizeDownButtonClick(object sender, EventArgs e)
@@ -119,6 +105,11 @@ namespace PocketIDE
                 CodeTextBox.TextChanged += CodeTextBoxTextChanged;
                 _highlighter.Highlight(CodeTextBox.Text);
             }
+        }
+
+        private void SettingsButtonClick(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/SettingsPage.xaml", UriKind.Relative));
         }
     }
 }

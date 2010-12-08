@@ -63,6 +63,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CodeRunner.cs" />
     <Compile Include="Extensions\EventHandlerExtensions.cs" />
     <Compile Include="Extensions\MaybeXElement.cs" />
     <Compile Include="Extensions\TextBoxExtensions.cs" />
@@ -84,6 +85,9 @@
     <Compile Include="Services\Bing.cs" />
     <Compile Include="Services\BingSearchCompletedEventArgs.cs" />
     <Compile Include="Services\BingSearchResult.cs" />
+    <Compile Include="SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Snippet.cs" />
     <Compile Include="SnippetExpander.cs" />
     <Compile Include="SyntaxHighlighter.cs" />
@@ -101,10 +105,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <DesignData Include="SampleData\MainViewModelSampleData.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </DesignData>
     <Page Include="BuildRunOutput.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -114,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MsdnSearchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

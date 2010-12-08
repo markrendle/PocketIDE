@@ -39,12 +39,12 @@
               Background="{StaticResource PhoneChromeBrush}">
             <Border Background="White" />
             <TextBlock x:Name="ColorTextBlock"
+                     FontSize="{Binding FontSize}"
                        Foreground="Black"
                        FontFamily="Courier New"
-                       FontSize="18"
                        Margin="20" />
             <TextBox x:Name="CodeTextBox"
-                     FontSize="18"
+                     FontSize="{Binding FontSize}"
                      FontFamily="Courier New"
                      Background="Transparent"
                      Foreground="Transparent"
@@ -91,10 +91,10 @@
                                             IconUri="/Icons/appbar.expand.png"
                                             Text="Expand"
                                             Click="ExpandSnippetButtonClick"/>
-            <shell:ApplicationBarIconButton x:Name="FontSizeDownButton"
-                                            IconUri="/Icons/fontsize.down.png"
-                                            Text="Smaller Font"
-                                            Click="FontSizeDownButtonClick"/>
+            <shell:ApplicationBarIconButton x:Name="SettingsButton"
+                                            IconUri="/Icons/appbar.feature.settings.rest.png"
+                                            Text="Settings"
+                                            Click="SettingsButtonClick"/>
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
                 <shell:ApplicationBarMenuItem Text="MenuItem 2"/>

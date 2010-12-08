@@ -61,12 +61,25 @@ namespace MsdnHtml.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
-        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
-        ///&lt;head id=&quot;ctl00_Head1&quot;&gt;
-        ///    &lt;link id=&quot;ctl00_HeaderLink2&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://i3.msdn.microsoft.com/Global/GlobalLoBand-bn20101102.css&quot;&gt;
-        ///    &lt;link id=&quot;ctl00_HeaderLink3&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://i3.msdn.microsoft.com/Platform/MasterPages/LibraryLoBand/LibraryLoBand-bn20101102.css&quot;&gt;
-        ///    &lt;title&gt;L [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to div.libCScode{width:98.9%;padding-bottom:20px;border-top:#fff 5px solid;display:block}
+        ///div.libCScode table{border:0;font-size:95%;margin-bottom:5px;width:100%}
+        ///div.libCScode table th{background:#ddd;border-bottom-color:#c8cdde;border-bottom-style:solid;border-bottom-width:1px;color:#006;font-weight:bold}
+        ///div.libCScode table td,pre.libCScode{background:#ddd;border-top-color:#c8cdde;border-top-style:solid;border-top-width:1px;padding-left:5px;padding-right:5px;padding-top:5px;margin:0 0 10px 0;display:bloc [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CodeCss {
+            get {
+                return ResourceManager.GetString("CodeCss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///        ///
+        ///        ///
+        ///&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;        ///
+        ///&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;        ///
+        ///        ///
+        ///&lt;head id=&quot;ctl00_Head1&quot;&gt;&lt;link id=&quot;ctl00_HeaderLink2&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://i3.msdn.microsoft.com/Global/GlobalLoBand-bn20101102.css&quot; /&gt;&lt;link id=&quot;ctl00_HeaderLink3&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://i3.msdn.microsoft.com/Platform/MasterPages/LibraryLoBand/LibraryLoBand-bn20101102.css&quot; /&gt;&lt;meta htt [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Html {
             get {

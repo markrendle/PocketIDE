@@ -37,6 +37,20 @@ namespace PocketIDE.ViewModels
             }
         }
 
+        private double _fontSize = 18;
+        public double FontSize
+        {
+            get { return _fontSize; }
+            set
+            {
+                if (_fontSize != value)
+                {
+                    _fontSize = value;
+                    PropertyChanged.Raise(this, "FontSize");
+                }
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }

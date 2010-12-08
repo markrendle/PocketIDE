@@ -18,12 +18,4 @@
       <Setting name="ConnectionString" />
     </ConfigurationSettings>
   </WebRole>
-  <WorkerRole name="MsdnContentProcessor">
-    <Imports>
-      <Import moduleName="Diagnostics" />
-    </Imports>
-    <ConfigurationSettings>
-      <Setting name="ConnectionString" />
-    </ConfigurationSettings>
-  </WorkerRole>
 </ServiceDefinition>
