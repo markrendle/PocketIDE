@@ -7,6 +7,8 @@ Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "CodeRunner.Cloud", "CodeRun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlAgilityPack", "HtmlAgilityPack\HtmlAgilityPack.csproj", "{193BB801-054F-4729-9D5D-FCE1E32594BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsdnContentProcessor", "MsdnContentProcessor\MsdnContentProcessor.csproj", "{1A417051-D38B-4CC4-B79B-874979071FBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{193BB801-054F-4729-9D5D-FCE1E32594BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{193BB801-054F-4729-9D5D-FCE1E32594BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{193BB801-054F-4729-9D5D-FCE1E32594BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A417051-D38B-4CC4-B79B-874979071FBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A417051-D38B-4CC4-B79B-874979071FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A417051-D38B-4CC4-B79B-874979071FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A417051-D38B-4CC4-B79B-874979071FBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

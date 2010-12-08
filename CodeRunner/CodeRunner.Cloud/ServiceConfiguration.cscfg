@@ -3,7 +3,15 @@
   <Role name="CodeRunner">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=pocketide;AccountKey=uY9aNcgvMDMnKD9YwAk2LMZGUun9jp7DhUQsotWzdbIAKadxTNWvkX4Pa2H+aBZTd45o0ZNTkc5+7PE71NYAsQ==" />
+      <Setting name="ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=pocketide;AccountKey=uY9aNcgvMDMnKD9YwAk2LMZGUun9jp7DhUQsotWzdbIAKadxTNWvkX4Pa2H+aBZTd45o0ZNTkc5+7PE71NYAsQ==" />
+    </ConfigurationSettings>
+  </Role>
+  <Role name="MsdnContentProcessor">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=pocketide;AccountKey=uY9aNcgvMDMnKD9YwAk2LMZGUun9jp7DhUQsotWzdbIAKadxTNWvkX4Pa2H+aBZTd45o0ZNTkc5+7PE71NYAsQ==" />
+      <Setting name="ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=pocketide;AccountKey=uY9aNcgvMDMnKD9YwAk2LMZGUun9jp7DhUQsotWzdbIAKadxTNWvkX4Pa2H+aBZTd45o0ZNTkc5+7PE71NYAsQ==" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>

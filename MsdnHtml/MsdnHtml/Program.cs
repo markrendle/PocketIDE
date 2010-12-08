@@ -2,26 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using HtmlAgilityPack;
 
 namespace MsdnHtml
 {
     class Program
     {
+        static readonly Regex RegionTitles = new Regex(@"<span\s+class=""regiontitle"".*?>\s*(?<title>.*?)\s*</span>");
         static void Main(string[] args)
         {
-            var doc = new HtmlDocument();
-            doc.LoadHtml(Properties.Resources.Html);
-            doc.DocumentNode.Descendants("span")
-                .Where(IsRegionArea)
-                .ToList()
-                .ForEach(node => Console.WriteLine(node.InnerHtml));
-        }
+            var titles = RegionTitles.Matches(Properties.Resources.Html).Cast<Match>()
+                .Select(m => m.Groups["title"].Value);
 
-        private static bool IsRegionArea(HtmlNode node)
-        {
-            if (node.FirstChild == null) return false;
-            return node.FirstChild.GetAttributeValue("class", "") == "regionArea";
+            foreach (var title in titles)
+            {
+                Console.WriteLine(title);
+            }
         }
     }
 }
