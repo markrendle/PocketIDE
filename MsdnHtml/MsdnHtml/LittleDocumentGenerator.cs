@@ -27,6 +27,12 @@ namespace MsdnHtml
 
             TweakCss();
 
+            var htmlBytes = Encoding.Default.GetBytes(GetHtmlText());
+            using (var stream = File.OpenWrite("main.html"))
+            {
+                stream.Write(htmlBytes, 0, htmlBytes.Length);
+            }
+
             foreach (var contentNode in contentNodes)
             {
                 RemoveTopLink(contentNode);

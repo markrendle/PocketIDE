@@ -1,8 +1,88 @@
-﻿@{
-    View.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="ctl00_Head1">
+    <link id="ctl00_HeaderLink2" rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/Global/GlobalLoBand-bn20101102.css">
+    <link id="ctl00_HeaderLink3" rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/Platform/MasterPages/LibraryLoBand/LibraryLoBand-bn20101102.css">
+    <!-- Looking for metadata? Use the robot view instead http://currentsite/currenturl(robot).aspx -->
+    <link rel="stylesheet" type="text/css" href="http://i3.msdn.microsoft.com/en-us/library/mtps-bn20101102.css?l=en-us&amp;i=library&amp;ct=CodeSnippet;CollapsibleArea;InstrumentedLink;KTableControl;LanguageSpecificText;LibraryLoBandBeta;LibraryLoBandCommContent;LibraryLoBandFeedbackLink;LibraryLoBandFooter;LibraryLoBandMasthead;LibraryLoBandToc;LibraryLoBandTocChildren;lwViewSwitcher;MtDisclaimer;ScriptFreeCodeSnippet;ScriptFreeInstrumentedLink;WebMetrix&amp;clustimg=0">
+    <style type="text/css">
+        div.libCScode
+        {
+            width: 98.9%;
+            padding-bottom: 20px;
+            border-top: #fff 5px solid;
+            display: block;
+        }
+        div.libCScode table
+        {
+            border: 0;
+            font-size: 95%;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+        div.libCScode table th
+        {
+            background: #ddd;
+            border-bottom-color: #c8cdde;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            color: #006;
+            font-weight: bold;
+        }
+        div.libCScode table td, pre.libCScode
+        {
+            background: #ddd;
+            border-top-color: #c8cdde;
+            border-top-style: solid;
+            border-top-width: 1px;
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-top: 5px;
+            margin: 0 0 10px 0;
+            display: block;
+            font-family: Courier New,Verdana,Arial,Helvetica,sans-serif;
+        }
+        div.libCScode pre
+        {
+            font-family: Courier New,Verdana,Arial,Helvetica,sans-serif;
+            color: #006;
+            white-space: pre-wrap;
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+            overflow: hidden;
+            font-size: 16px;
+        }
+        div.hidden
+        {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.6/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".region-link").click(function () {
+                if ($(this).next().length == 0) {
+                    $(this).after('<div></div>').load();
+                } else {
+                    $(this).next().toggle("hidden");
+                }
+                return false;
+            });
+        });
+</script>
+</head>
+<body id="ctl00_Body1" dir="ltr">
+</body>
+@foreach (var region in (IEnumerable<string>)ViewData["regions"])
+{
+    <div class="regionMain" style="width: 100%">
+        <a href="#" class="region-link" data-region-name="@region.ToLower()">
+            <div class="regiontitle" style="background-color: #DDDDDD; width: 100%">@region</div>
+        </a>
+    </div>
 }
-
-<h2>Index</h2>
-
-<p>@ViewData["OriginalUrl"].ToString()</p>
+</html>

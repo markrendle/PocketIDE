@@ -29,8 +29,15 @@ namespace PocketIDE
                 var searchResult = App.ViewModel.MsdnViewModel.SearchResults[index];
                 DataContext = searchResult;
                 var url = "http://pocketide.cloudapp.net/msdn?originalUrl=" + Uri.EscapeUriString(searchResult.MsdnUrl);
+                var webClient = new WebClient();
+                webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DownloadStringCompleted);
                 Browser.Source = new Uri(url);
             }
+        }
+
+        void DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -13,25 +13,23 @@ namespace CodeRunner.Controllers
 {
     public class MsdnController : Controller
     {
-        static readonly Regex RegionTitles = new Regex(@"<span\s+class=""regiontitle"".*?>\s*(?<title>.*?)\s*</span>");
+        static readonly Regex RegionTitles = new Regex(@"<span\s+class=""regiontitle"".*?>\s*(?<title>.*?)\s*</span>",RegexOptions.Multiline);
 
         //
         // GET: /Msdn/
 
         public ActionResult Index(string originalUrl)
         {
-            ProcessMsdnContentQueue.EnqueueAsync(originalUrl);
-
-            var robotUrl = originalUrl.Replace(".aspx", "(robot).aspx");
+            var robotUrl = originalUrl.Replace(".aspx", "(loband).aspx");
             string html;
             using (var client = new WebClient())
             {
                 html = client.DownloadString(robotUrl);
             }
-            var titles = RegionTitles.Matches(html).Cast<Match>()
+            ViewData["regions"] = RegionTitles.Matches(html).Cast<Match>()
                 .Select(m => m.Groups["title"].Value);
 
-            return Content(string.Join("#", titles), "text/text");
+            return View();
         }
     }
 }
