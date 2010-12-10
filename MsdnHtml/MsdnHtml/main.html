@@ -14,6 +14,8 @@
     div.libCScode table td,pre.libCScode{background:#ddd;border-top-color:#c8cdde;border-top-style:solid;border-top-width:1px;padding-left:5px;padding-right:5px;padding-top:5px;margin:0 0 10px 0;display:block;font-family:Courier New,Verdana,Arial,Helvetica,sans-serif}
     div.libCScode pre{font-family:Courier New,Verdana,Arial,Helvetica,sans-serif;color:#006;white-space:pre-wrap;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;overflow:hidden;font-size:16px}
     div.hidden {display:none}
+    div.fullWidth {width:100%}
+    div.regionHeader {background-color:#DDDDDD}
 </style>
 
 <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.4.min.js"></script>
@@ -33,16 +35,16 @@
 
 </head>
 
-<body id="ctl00_Body1" dir="ltr"></body>
-    <div class="regionMain" style="width:100%">
+<body id="ctl00_Body1" dir="ltr">
+    <div class="regionMain fullWidth">
         <a href="#" class="region-link">
-            <div class="regiontitle" style="background-color:#DDDDDD;width:100%">Foo</div>
+            <div class="regiontitle fullWidth regionHeader">Foo</div>
         </a>
     </div>
-    <div class="regionMain" style="width:100%">
+    <div class="regionMain fullWidth">
         <a href="#" class="region-link">
-            <div class="regiontitle" style="background-color:#DDDDDD;width:100%">Bar</div>
+            <div class="regiontitle fullWidth regionHeader">Bar</div>
         </a>
     </div>
-
+    </body>
 </html>
