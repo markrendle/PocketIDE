@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PocketIDE.Web.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="JQueryUri" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.4.min.js</Value>
+    </Setting>
+    <Setting Name="JQueryUIUri" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.6/jquery-ui.min.js</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
