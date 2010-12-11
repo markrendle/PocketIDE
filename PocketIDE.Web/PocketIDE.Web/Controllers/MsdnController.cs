@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using PocketIDE.Web.Data;
 using HtmlAgilityPack;
+using PocketIDE.Web.Msdn;
 
 namespace PocketIDE.Web.Controllers
 {
@@ -20,16 +22,15 @@ namespace PocketIDE.Web.Controllers
 
         public ActionResult Index(string originalUrl)
         {
-            var robotUrl = originalUrl.Replace(".aspx", "(loband).aspx");
+            var lobandUrl = originalUrl.Replace(".aspx", "(loband).aspx");
             string html;
             using (var client = new WebClient())
             {
-                html = client.DownloadString(robotUrl);
+                html = client.DownloadString(lobandUrl);
             }
-            ViewData["regions"] = RegionTitles.Matches(html).Cast<Match>()
-                .Select(m => m.Groups["title"].Value);
-
-            return View();
+            var littleDocumentGenerator = LittleDocumentGenerator.Create(html);
+            html = Encoding.Default.GetString(littleDocumentGenerator.ProcessedDocument);
+            return Content(html, "text/html");
         }
     }
 }

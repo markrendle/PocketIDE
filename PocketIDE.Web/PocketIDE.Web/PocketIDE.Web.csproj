@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Exceptioneer.WebClient">
+      <HintPath>..\References\Exceptioneer.WebClient.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -83,7 +86,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Msdn\ContentProcessor.cs" />
+    <Compile Include="Msdn\ContentSaver.cs" />
+    <Compile Include="Msdn\CssAggregator.cs" />
     <Compile Include="Msdn\DocumentProcessor.cs" />
+    <Compile Include="Msdn\EventHandlerExtensions.cs" />
     <Compile Include="Msdn\HtmlDocumentExtensions.cs" />
     <Compile Include="Msdn\HtmlNodeExtensions.cs" />
     <Compile Include="Msdn\LittleDocumentGenerator.cs" />
@@ -143,12 +149,6 @@
     <Content Include="Views\Msdn\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HtmlAgilityPack\HtmlAgilityPack.csproj">
-      <Project>{193BB801-054F-4729-9D5D-FCE1E32594BF}</Project>
-      <Name>HtmlAgilityPack</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Code\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +162,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\HtmlAgilityPack\Trunk\HtmlAgilityPack\HtmlAgilityPack.fx.4.0.csproj">
+      <Project>{1028002A-BBE2-4FF2-94B7-A8368A8F6887}</Project>
+      <Name>HtmlAgilityPack.fx.4.0</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

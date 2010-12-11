@@ -17,5 +17,10 @@ namespace PocketIDE.Web.Data
         {
             return StorageAccount.CreateCloudQueueClient();
         }
+
+        public static CloudBlobClient CreateBlobClient()
+        {
+            return StorageAccount.CreateCloudBlobClient();
+        }
     }
 }

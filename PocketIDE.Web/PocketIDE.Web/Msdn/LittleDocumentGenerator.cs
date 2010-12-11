@@ -11,6 +11,7 @@ namespace PocketIDE.Web.Msdn
     {
         private readonly HtmlDocument _document;
         private readonly object _sync = new object();
+        private readonly CssAggregator _cssAggregator = new CssAggregator();
         private bool _done;
         private byte[] _processedDocument;
         private readonly List<Tuple<string, byte[]>> _contents = new List<Tuple<string, byte[]>>();
@@ -62,6 +63,8 @@ namespace PocketIDE.Web.Msdn
 
         private void GenerateLittleDocuments()
         {
+            AggregateCssAsync();
+
             var contentNodes = new Dictionary<string, HtmlNode> {{"toc", _document.GetElementbyId("toc")}};
 
             RemoveUnwantedNodes();
@@ -79,6 +82,17 @@ namespace PocketIDE.Web.Msdn
             _processedDocument = Encoding.Default.GetBytes(GetHtmlText());
 
             _contents.AddRange(CreateContentNodes(contentNodes, bodyNode));
+        }
+
+        private void AggregateCssAsync()
+        {
+            var stylesheetLinkNodes = _document.DocumentNode.Element("html").Element("head").Elements("link")
+                .Where(node => node.GetAttributeValue("rel", "") == "stylesheet").ToList();
+            foreach (var node in stylesheetLinkNodes)
+            {
+                _cssAggregator.AddAsync(node.GetAttributeValue("href", ""));
+                node.Remove();
+            }
         }
 
         private IEnumerable<Tuple<string, byte[]>> CreateContentNodes(Dictionary<string, HtmlNode> contentNodes, HtmlNode bodyNode)
@@ -142,11 +156,17 @@ namespace PocketIDE.Web.Msdn
 
         private void TweakCss()
         {
+            EmbedCss(_cssAggregator.GetAggregatedCss());
+            EmbedCss(Properties.Resources.CustomCss);
+        }
+
+        private void EmbedCss(string cssText)
+        {
             var headNode = _document.DocumentNode.Element("html").Element("head");
             var styleNode =
                 HtmlNode.CreateNode(
                     @"<style type=""text/css""></span>");
-            styleNode.InnerHtml = Properties.Resources.CustomCss;
+            styleNode.InnerHtml = cssText;
             headNode.AppendChild(styleNode);
         }
 

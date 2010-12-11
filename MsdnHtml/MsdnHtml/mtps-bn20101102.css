@@ -1,0 +1,24 @@
+
+
+.CodeSnippetTitleBar{background-color:#ddd;padding-top:3px;padding-left:3px;padding-right:3px;padding-bottom:3px;white-space:nowrap;border-bottom:solid 1px #aaa;height:15px;word-spacing:normal;letter-spacing:normal}.CodeDisplayLanguage{float:left;text-align:left}.CopyCodeButton{float:right;text-align:right}span.copyCode{color:#00f;font-size:90%;font-weight:normal;cursor:hand;float:right;display:inline;text-align:right}a.copyCode{cursor:pointer;color:blue;text-decoration:none;text-align:right}div.libCScode{width:98.9%;padding-bottom:20px;border-top:#fff 5px solid;display:block}div.libCScode table{border:0;font-size:95%;margin-bottom:5px;width:100%}div.libCScode table th{background:#ddd;border-bottom-color:#c8cdde;border-bottom-style:solid;border-bottom-width:1px;color:#006;font-weight:bold}div.libCScode table td,pre.libCScode{background:#ddd;border-top-color:#c8cdde;border-top-style:solid;border-top-width:1px;padding-left:5px;padding-right:5px;padding-top:5px;margin:0 0 10px 0;display:block;font-family:Courier New,Verdana,Arial,Helvetica,sans-serif}div.libCScode pre{font-family:Courier New,Verdana,Arial,Helvetica,sans-serif;color:#006;white-space:pre-wrap;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;overflow:hidden;font-size:12px}span.code{font-family:Monospace,Courier New,Courier;font-size:105%;color:#006}span.ui{font-weight:bold}span.math{font-style:italic}span.term{font-style:italic}span.label{font-weight:bold}span.foreignPhrase{font-style:italic}span.placeholder{font-style:italic}span.keyword{font-weight:bold}span.typeparameter{font-style:italic}span.identifier{}span.keyword{color:#871f78}span.parameter{font-style:italic}span.literal{color:maroon}span.comment{color:green}span.syntaxLabel{color:#0481da;font-weight:bold}span.introStyle{color:DarkGray}
+
+
+
+#CCS_TopicTags{BORDER:#c8cdde 1px solid;padding:.5em}#CCS_Header{BORDER-BOTTOM:black 1px solid;BACKGROUND-COLOR:#5ba86f;color:#fff;padding:.3em}#CCS_ItemsContainer{BORDER:#c8cdde 1px solid;width:99.7%}#tagTitle{font-weight:bold}#CCS_ItemTitle #title{FONT-WEIGHT:bold;padding-left:.5em;padding-top:.3em}#CCS_ItemTitle #user{FLOAT:right;padding-right:.5em;padding-top:.3em}#CCS_ItemTitle{BORDER-BOTTOM:#c8cdde 1px solid;BACKGROUND-COLOR:#eff7f7;display:block;width:100%}#CCS_ItemBody{padding:.5em;BORDER-bottom:#c8cdde 1px solid}#CCS_ItemTags{padding:.5em}#CCS_Footer{MARGIN-TOP:24px;FONT-SIZE:0;WIDTH:100%;HEIGHT:8px;BACKGROUND-COLOR:#5ba86f}
+
+
+
+.MTPS_FooterLinks{margin-bottom:5px}
+
+
+
+.headertitle{font-weight:bold;font-size:1.5em;color:#000}.BrandLogo{float:right;background-image:url(/Platform/MasterPages/LightWeight/Image/LWLibC.png);background-repeat:no-repeat;background-position:-331px 0;background-repeat:no-repeat;height:42px;margin-top:8px;margin-left:16px;padding-bottom:4px;margin-right:20px;width:115px}
+
+
+
+.LWVS_Button{background-color:#eba32a;border-top:solid 1px #646263;border-left:solid 1px #646263;border-bottom:solid 1px #646263;position:fixed;text-align:center;vertical-align:middle;padding-top:5px;padding-bottom:5px;width:124px;height:21px;cursor:pointer;z-index:12;bottom:0;right:124px}.LWVS_Button a{font-family:Segoe UI,Verdana,Arial;font-size:11pt;color:#fff;text-decoration:none}.LWVS_Window{display:none;position:fixed;width:247px;height:85px;background-color:White;border:solid 1px #646263;font-family:Segoe UI,Verdana,Arial;font-size:10pt;z-index:12;bottom:33px;right:0}.LWVS_Window a{padding-left:10px}.LWVS_DisabledLink,.LWVS_DisabledLink:active,.LWVS_DisabledLink:visited,.LWVS_DisabledLink:hover{vertical-align:middle;text-decoration:none;font-weight:bold}.LWVS_Window a:link,.LWVS_Window a:visited{color:#2178e0}.LWVS_Window a:hover,.LWVS_Window a:active{color:#2178e0;text-decoration:underline}.LWVS_Text{}.LWVS_Detail{color:silver;vertical-align:middle}.LWVS_DisabledText{color:#e66a38;font-weight:bold}.LWVS_DisabledDetail{color:gray}.LWVS_SwitcherHeading{background-color:#eba32a;color:#646364;font-family:Segoe UI,Verdana,Arial;font-size:10pt;font-weight:bold;vertical-align:bottom;height:20px;padding-top:3px;padding-left:10px;margin-bottom:5px}.LWVS_SwitcherHeadingText{float:left}.LWVS_SwitcherHeadingClose{float:right;margin-right:10px}.LWVS_SwitcherHeadingClose a{text-decoration:none;font-weight:bold;color:#646364}
+
+
+
+.MtDisclaimer_Area{margin-left:5px;border-style:solid;border-color:#fc9;border-width:3px;padding:5px;clear:both}.MtDisclaimer_Text{font-size:8pt}.MtDisclaimer_Area_Dev10{background:#ffdbdb;border-top:solid 1px #bbb;border-bottom:solid 1px #bbb;padding:5px}.MtDisclaimer_Icon_Dev10{float:left;border-width:0;vertical-align:middle;padding-right:5px}.MtDisclaimer_Text_Dev10{display:inline;vertical-align:middle}
+
