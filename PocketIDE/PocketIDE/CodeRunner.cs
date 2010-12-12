@@ -15,7 +15,7 @@ namespace PocketIDE
 {
     public class CodeRunner
     {
-        private static readonly Uri CodeRunUri = new Uri("http://pocketide.cloudapp.net/Run/Create");
+        private static readonly Uri CodeRunUri = new Uri("http://pocketide.cloudapp.net/code/run");
         private readonly CodeEditorViewModel _codeEditorViewModel;
 
         public CodeRunner(CodeEditorViewModel codeEditorViewModel)
@@ -25,8 +25,7 @@ namespace PocketIDE
 
         public void Run()
         {
-            var encoded = Convert.ToBase64String(Encoding.UTF8.GetBytes(_codeEditorViewModel.Code));
-            var json = string.Format(@"{{""code"":""{0}""}}", encoded);
+            var json = Code.ToBase64Json(_codeEditorViewModel.Code);
             var webClient = new WebClient();
             webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
             webClient.UploadStringCompleted += UploadStringCompleted;

@@ -95,8 +95,15 @@
                                             Text="Settings"
                                             Click="SettingsButtonClick"/>
             <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
-                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+                <shell:ApplicationBarMenuItem x:Name="OpenMenuItem"
+                                              Text="Open..."
+                                              Click="OpenMenuItemClick"/>
+                <shell:ApplicationBarMenuItem x:Name="SaveMenuItem"
+                                              Text="Save"
+                                              Click="SaveMenuItemClick"/>
+                <shell:ApplicationBarMenuItem x:Name="SaveAsMenuItem"
+                                              Text="Save As..."
+                                              Click="SaveAsMenuItemClick"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

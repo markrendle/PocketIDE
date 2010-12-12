@@ -63,6 +63,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Code.cs" />
     <Compile Include="CodeRunner.cs" />
     <Compile Include="Extensions\EventHandlerExtensions.cs" />
     <Compile Include="Extensions\MaybeXElement.cs" />
@@ -81,7 +82,13 @@
     <Compile Include="MsdnSearchPage.xaml.cs">
       <DependentUpon>MsdnSearchPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OpenPage.xaml.cs">
+      <DependentUpon>OpenPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaveAsPage.xaml.cs">
+      <DependentUpon>SaveAsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\Bing.cs" />
     <Compile Include="Services\BingSearchCompletedEventArgs.cs" />
     <Compile Include="Services\BingSearchResult.cs" />
@@ -114,6 +121,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MsdnSearchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OpenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SaveAsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

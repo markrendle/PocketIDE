@@ -111,5 +111,20 @@ namespace PocketIDE
         {
             NavigationService.Navigate(new Uri("/SettingsPage.xaml", UriKind.Relative));
         }
+
+        private void OpenMenuItemClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SaveMenuItemClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SaveAsMenuItemClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

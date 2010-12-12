@@ -1,5 +1,5 @@
 ﻿<phone:PhoneApplicationPage 
-    x:Class="PocketIDE.MsdnDocumentPage"
+    x:Class="PocketIDE.SaveAsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -22,21 +22,28 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="POCKET IDE" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle"
-                        Text="msdn"
-                        Margin="9,-7,0,0"
-                        Style="{StaticResource PhoneTextTitle2Style}" />
-            <TextBlock x:Name="DocumentTitle"
-                        Text="{Binding Title}"
-                       Margin="9,-7,0,0"
-                       TextWrapping="Wrap"/>
+            <TextBlock x:Name="ApplicationTitle" Text="POCKET C#" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="save as" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle2Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <phone:WebBrowser x:Name="Browser"
-                              FontSize="20"/>
+            <StackPanel>
+                <TextBlock>Give the code a name</TextBlock>
+                <TextBox x:Name="SaveNameTextBox"
+                         Text="{Binding CodeEditorViewModel.SaveName, Mode=TwoWay}" />
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+                    <Button x:Name="SaveButton"
+                            Click="SaveButtonClick">
+                        <TextBlock>Save</TextBlock>
+                    </Button>
+                    <Button x:Name="CancelButton"
+                            Click="CancelButtonClick">
+                        <TextBlock>Cancel</TextBlock>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
         </Grid>
     </Grid>
  

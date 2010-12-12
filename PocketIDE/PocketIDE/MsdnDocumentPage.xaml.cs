@@ -18,6 +18,7 @@ namespace PocketIDE
         public MsdnDocumentPage()
         {
             InitializeComponent();
+            Browser.IsScriptEnabled = true;
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -28,16 +29,13 @@ namespace PocketIDE
                 int index = int.Parse(selectedIndex);
                 var searchResult = App.ViewModel.MsdnViewModel.SearchResults[index];
                 DataContext = searchResult;
-                var url = "http://pocketide.cloudapp.net/msdn?originalUrl=" + Uri.EscapeUriString(searchResult.MsdnUrl);
-                var webClient = new WebClient();
-                webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(DownloadStringCompleted);
+                var url = searchResult.MsdnUrl;
+                if (url.StartsWith("http://msdn.microsoft.com/en-us/library", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    url = url.Replace("http://msdn.microsoft.com", "http://pocketide.cloudapp.net");
+                }
                 Browser.Source = new Uri(url);
             }
-        }
-
-        void DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
-        {
-            throw new NotImplementedException();
         }
     }
 }
