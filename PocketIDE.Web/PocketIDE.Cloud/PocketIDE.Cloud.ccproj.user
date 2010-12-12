@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <DeploymentBuildOnly>False</DeploymentBuildOnly>
-    <DeploymentAccountName>MarkRendleAccount</DeploymentAccountName>
+    <DeploymentAccountName>RendleCloud</DeploymentAccountName>
     <DeploymentHostedService>pocketide</DeploymentHostedService>
     <DeploymentHostedServiceLabel>Pocket IDE</DeploymentHostedServiceLabel>
     <DeploymentSlot>Production</DeploymentSlot>
@@ -10,7 +10,7 @@
     <DeploymentEnableWebDeploy>False</DeploymentEnableWebDeploy>
     <DeploymentStorageService>pocketide</DeploymentStorageService>
     <DeploymentStorageServiceLabel>pocketide</DeploymentStorageServiceLabel>
-    <DeploymentLabel>CodeRunner.Cloud - 08/12/2010 13:49:29</DeploymentLabel>
+    <DeploymentLabel>PocketIDE.Cloud - 12/12/2010 16:49:42</DeploymentLabel>
     <DeploymentPromptBeforeDeleting>True</DeploymentPromptBeforeDeleting>
     <DeploymentIsExpanded>True</DeploymentIsExpanded>
   </PropertyGroup>
