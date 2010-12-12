@@ -9,7 +9,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
 
@@ -27,9 +27,23 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            
-        </Grid>
+        <ScrollViewer Grid.Row="1"
+                      Margin="12,0,12,0">
+            <ListBox x:Name="MainListBox"
+                     Margin="0,0,-12,0"
+                     SelectionChanged="MainListBoxSelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="0,0,0,17"
+                                    Width="432">
+                            <TextBlock Text="{Binding}"
+                                       TextWrapping="Wrap"
+                                       Style="{StaticResource PhoneTextTitle2Style}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
     </Grid>
  
     <!--Sample code showing usage of ApplicationBar-->

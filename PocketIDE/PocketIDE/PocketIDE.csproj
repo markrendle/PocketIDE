@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="Code.cs" />
     <Compile Include="CodeRunner.cs" />
+    <Compile Include="CodeSaver.cs" />
     <Compile Include="Extensions\EventHandlerExtensions.cs" />
     <Compile Include="Extensions\MaybeXElement.cs" />
     <Compile Include="Extensions\TextBoxExtensions.cs" />

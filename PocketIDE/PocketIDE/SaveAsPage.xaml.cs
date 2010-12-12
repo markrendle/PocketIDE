@@ -22,7 +22,15 @@ namespace PocketIDE
 
         private void SaveButtonClick(object sender, RoutedEventArgs e)
         {
+            App.ViewModel.CodeEditorViewModel.SaveName = SaveNameTextBox.Text;
+            var saver = new CodeSaver();
+            saver.SaveCompleted += SaveCompleted;
+            saver.SaveAsync();
+        }
 
+        void SaveCompleted(object sender, EventArgs e)
+        {
+            NavigationService.GoBack();
         }
 
         private void CancelButtonClick(object sender, RoutedEventArgs e)

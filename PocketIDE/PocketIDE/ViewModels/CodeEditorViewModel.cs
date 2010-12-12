@@ -18,10 +18,24 @@ namespace PocketIDE.ViewModels
     {
         public CodeEditorViewModel()
         {
-            Code = "using System;\rclass Program {\r  public static void Main() {\r    Console.WriteLine(\"IDE in a Phone!\");\r  }\r}";
+            _code = "using System;\rclass Program {\r  public static void Main() {\r    Console.WriteLine(\"IDE in a Phone!\");\r  }\r}";
         }
 
-        public string Code { get; set; }
+        private string _code;
+        public string Code
+        {
+            get { return _code; }
+            set
+            {
+                if (_code != value)
+                {
+                    _code = value;
+                    PropertyChanged.Raise(this, "Code");
+                }
+            }
+        }
+
+        public string SaveName { get; set; }
 
         private string _output;
         public string Output

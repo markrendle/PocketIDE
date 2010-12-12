@@ -20,5 +20,10 @@ namespace PocketIDE
             InitializeComponent();
             DataContext = App.ViewModel;
         }
+
+        private void DoneButtonClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }

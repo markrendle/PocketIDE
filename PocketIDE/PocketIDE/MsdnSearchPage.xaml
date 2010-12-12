@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
 
@@ -26,19 +26,25 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
+        <ScrollViewer              Grid.Row="1">
         <Grid x:Name="ContentPanel"
-              Grid.Row="1"
               Margin="12,0,12,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <TextBox x:Name="SearchTextBox"
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                    <TextBox x:Name="SearchTextBox"
                      Grid.Row="0"
+                             Grid.ColumnSpan="2"
                      Text="{Binding SearchTerms, Mode=TwoWay}"
                      TextChanged="SearchTextBoxTextChanged" />
             <ListBox x:Name="MainListBox"
                      Grid.Row="1"
+                     Grid.ColumnSpan="2"
                      Margin="0,0,-12,0"
                      ItemsSource="{Binding SearchResults}"
                      SelectionChanged="MainListBoxSelectionChanged">
@@ -57,7 +63,8 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        </Grid>
+            </Grid>
+        </ScrollViewer>
     </Grid>
  
     <!--Sample code showing usage of ApplicationBar-->

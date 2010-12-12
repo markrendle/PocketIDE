@@ -10,8 +10,8 @@
     <DeploymentEnableWebDeploy>False</DeploymentEnableWebDeploy>
     <DeploymentStorageService>pocketide</DeploymentStorageService>
     <DeploymentStorageServiceLabel>pocketide</DeploymentStorageServiceLabel>
-    <DeploymentLabel>PocketIDE.Cloud - 12/12/2010 16:49:42</DeploymentLabel>
+    <DeploymentLabel>PocketIDE.Cloud - 12/12/2010 23:06:54</DeploymentLabel>
     <DeploymentPromptBeforeDeleting>True</DeploymentPromptBeforeDeleting>
-    <DeploymentIsExpanded>True</DeploymentIsExpanded>
+    <DeploymentIsExpanded>False</DeploymentIsExpanded>
   </PropertyGroup>
 </Project>

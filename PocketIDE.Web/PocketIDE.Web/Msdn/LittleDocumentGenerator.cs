@@ -259,14 +259,14 @@ namespace PocketIDE.Web.Msdn
 
         private void RemoveUnwantedLanguageSnippets()
         {
-            var unwantedLanguageNodes = HtmlNodeExtensions.GetElementsByClassName(_document.DocumentNode, "div", "libCScode").ToList();
+            var unwantedLanguageNodes = _document.DocumentNode.GetElementsByClassName("div", "libCScode").ToList();
             foreach (var node in unwantedLanguageNodes)
             {
-                var titleBarNode = HtmlNodeExtensions.GetElementsByClassName(node, "div", "CodeSnippetTitleBar").FirstOrDefault();
+                var titleBarNode = node.GetElementsByClassName("div", "CodeSnippetTitleBar").FirstOrDefault();
                 if (titleBarNode != null)
                 {
                     var languageNode =
-                        HtmlNodeExtensions.GetElementsByClassName(titleBarNode, "div", "CodeDisplayLanguage").FirstOrDefault();
+                        titleBarNode.GetElementsByClassName("div", "CodeDisplayLanguage").FirstOrDefault();
                     if (languageNode != null)
                     {
                         if (languageNode.InnerText.Trim() != "C#")
@@ -276,6 +276,16 @@ namespace PocketIDE.Web.Msdn
                     }
                 }
             }
+
+            var otherLanguageSpans = _document.DocumentNode.Descendants("span").Where(
+                node => OtherLanguages.Contains(node.GetAttributeValue("class", "cs"))).ToList();
+            otherLanguageSpans.ForEach(node => node.Remove());
+
+            var csLanguageSpans = _document.DocumentNode.Descendants("span").Where(
+                node => node.GetAttributeValue("class", "").Equals("cs", StringComparison.OrdinalIgnoreCase)).ToList();
+            csLanguageSpans.ForEach(node => node.ParentNode.ReplaceChild(HtmlNode.CreateNode(node.InnerHtml), node));
         }
+
+        private static readonly HashSet<string> OtherLanguages = new HashSet<string> { "vb", "cpp", "nu" };
     }
 }

@@ -74,6 +74,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\Loader.cs" />
+    <Compile Include="Code\Runner.cs" />
+    <Compile Include="Code\Saver.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MsdnController.cs" />
     <Compile Include="Controllers\CodeController.cs" />
@@ -106,6 +109,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Icon.png" />
+    <Content Include="Content\Msdn.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <None Include="Properties\Settings.settings">
@@ -140,6 +145,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Code\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

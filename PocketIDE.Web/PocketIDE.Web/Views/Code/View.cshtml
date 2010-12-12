@@ -1,0 +1,26 @@
+﻿@{
+    View.Title = ViewData["Name"].ToString();
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Stylesheets
+{
+<link href="http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+    td.code { padding-left:8px }
+    div.line { font-family:Courier New }
+</style>
+}
+@section JavaScripts
+{
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type="text/javascript"></script>
+<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCSharp.js" type="text/javascript"></script>
+}
+
+<div style="float:right"><img src="../../Content/Icon.png" alt="icon" /></div>
+<h2>@ViewData["Name"].ToString()</h2>
+<hr />
+<pre class="brush: csharp; ruler: false; toolbar: false">@ViewData["Code"]</pre>
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>

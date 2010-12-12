@@ -114,17 +114,26 @@ namespace PocketIDE
 
         private void OpenMenuItemClick(object sender, EventArgs e)
         {
-
+            NavigationService.Navigate(new Uri("/OpenPage.xaml", UriKind.Relative));
         }
 
         private void SaveMenuItemClick(object sender, EventArgs e)
         {
-
+            App.ViewModel.CodeEditorViewModel.Code = CodeTextBox.Text;
+            if (string.IsNullOrEmpty(App.ViewModel.CodeEditorViewModel.SaveName))
+            {
+                SaveAsMenuItemClick(sender, e);
+            }
+            else
+            {
+                new CodeSaver().SaveAsync();
+            }
         }
 
         private void SaveAsMenuItemClick(object sender, EventArgs e)
         {
-
+            App.ViewModel.CodeEditorViewModel.Code = CodeTextBox.Text;
+            NavigationService.Navigate(new Uri("/SaveAsPage.xaml", UriKind.Relative));
         }
     }
 }

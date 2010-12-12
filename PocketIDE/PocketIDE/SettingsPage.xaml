@@ -9,7 +9,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True">
 
@@ -37,7 +37,14 @@
                 </StackPanel>
                 <Slider Minimum="12"
                         Maximum="32"
+                        SmallChange="2"
+                        LargeChange="2"
                         Value="{Binding CodeEditorViewModel.FontSize, Mode=TwoWay}" />
+                <Button x:Name="DoneButton"
+                        HorizontalAlignment="Right"
+                        Click="DoneButtonClick">
+                    <TextBlock>Done</TextBlock>
+                </Button>
             </StackPanel>
         </Grid>
     </Grid>

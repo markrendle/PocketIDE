@@ -10,7 +10,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape"
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -32,8 +32,8 @@
                        Margin="9,-7,0,0"
                        Style="{StaticResource PhoneTextTitle2Style}" />
         </StackPanel>
+        <ScrollViewer Grid.Row="1">
         <Grid x:Name="CodeEditor"
-              Grid.Row="1"
               DataContext="{Binding CodeEditorViewModel}"
               Background="{StaticResource PhoneChromeBrush}">
             <Border Background="White" />
@@ -53,6 +53,7 @@
                      Style="{StaticResource TransparentTextBoxStyle}">
             </TextBox>
         </Grid>
+        </ScrollViewer>    
     </Grid>
     <toolkit:TransitionService.NavigationInTransition>
         <toolkit:NavigationInTransition>
