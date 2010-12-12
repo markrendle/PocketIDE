@@ -1,0 +1,12 @@
+$(function () {
+    $(".region-link").click(function () {
+        if ($(this).next().length == 0) {
+            contentUrl = $(this).attr("data-content-url");
+            $(this).parent().append('<div class="region-content"></div>');
+			$(this).siblings().first().load(contentUrl);
+        } else {
+            $(this).next().toggle("hidden");
+        }
+        return false;
+    });
+});

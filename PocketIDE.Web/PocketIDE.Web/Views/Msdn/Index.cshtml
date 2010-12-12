@@ -66,7 +66,8 @@
         $(function () {
             $(".region-link").click(function () {
                 if ($(this).next().length == 0) {
-                    $(this).after('<div></div>').load();
+                    contentUrl = $(this).attr("data-content-url");
+                    $(this).after('<div></div>').load(contentUrl);
                 } else {
                     $(this).next().toggle("hidden");
                 }
@@ -80,7 +81,7 @@
 @foreach (var region in (IEnumerable<string>)ViewData["regions"])
 {
     <div class="regionMain" style="width: 100%">
-        <a href="#" class="region-link" data-region-name="@region.ToLower()">
+        <a href="#" class="region-link" data-content-url="@region.ToLower()">
             <div class="regiontitle" style="background-color: #DDDDDD; width: 100%">@region</div>
         </a>
     </div>

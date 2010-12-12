@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Exceptioneer.WebClient">
-      <HintPath>..\References\Exceptioneer.WebClient.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -85,10 +82,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Msdn\Content.cs" />
     <Compile Include="Msdn\ContentProcessor.cs" />
     <Compile Include="Msdn\ContentSaver.cs" />
     <Compile Include="Msdn\CssAggregator.cs" />
     <Compile Include="Msdn\DocumentProcessor.cs" />
+    <Compile Include="Msdn\EnumerableExtensions.cs" />
     <Compile Include="Msdn\EventHandlerExtensions.cs" />
     <Compile Include="Msdn\HtmlDocumentExtensions.cs" />
     <Compile Include="Msdn\HtmlNodeExtensions.cs" />
@@ -114,6 +113,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Resources\CustomCss.txt" />
+    <None Include="Resources\MsdnJQueryCode.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

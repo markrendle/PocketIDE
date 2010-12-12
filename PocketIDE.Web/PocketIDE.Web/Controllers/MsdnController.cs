@@ -20,17 +20,39 @@ namespace PocketIDE.Web.Controllers
         //
         // GET: /Msdn/
 
-        public ActionResult Index(string originalUrl)
+        public ActionResult Index(string id)
         {
-            var lobandUrl = originalUrl.Replace(".aspx", "(loband).aspx");
-            string html;
-            using (var client = new WebClient())
+            var originalUrl = "http://msdn.microsoft.com/en-us/" + id;
+            var blobUrl = Msdn.Content.GetBlobUrl(originalUrl, "root");
+            if (!UrlIsValid(blobUrl))
             {
-                html = client.DownloadString(lobandUrl);
+                var lobandUrl = originalUrl.Replace(".aspx", "(loband).aspx");
+                string html;
+                using (var client = new WebClient())
+                {
+                    html = client.DownloadString(lobandUrl);
+                }
+                var littleDocumentGenerator = LittleDocumentGenerator.Create(originalUrl, html);
+                html = Encoding.UTF8.GetString(littleDocumentGenerator.ProcessedDocument);
+                var toSave = littleDocumentGenerator.Contents.Append("root", littleDocumentGenerator.ProcessedDocument);
+                new ContentSaver().SaveContentsAsync(originalUrl, toSave);
             }
-            var littleDocumentGenerator = LittleDocumentGenerator.Create(html);
-            html = Encoding.Default.GetString(littleDocumentGenerator.ProcessedDocument);
-            return Content(html, "text/html");
+            return Redirect(blobUrl);
+//            return Content(html, "text/html");
+        }
+
+        private static bool UrlIsValid(string url)
+        {
+            try
+            {
+                var request = WebRequest.Create(url);
+                request.GetResponse();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

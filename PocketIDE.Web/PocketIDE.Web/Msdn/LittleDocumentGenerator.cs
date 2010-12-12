@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Web;
 using HtmlAgilityPack;
 
 namespace PocketIDE.Web.Msdn
 {
     class LittleDocumentGenerator
     {
+        private readonly string _originalUrl;
         private readonly HtmlDocument _document;
         private readonly object _sync = new object();
         private readonly CssAggregator _cssAggregator = new CssAggregator();
@@ -16,15 +18,16 @@ namespace PocketIDE.Web.Msdn
         private byte[] _processedDocument;
         private readonly List<Tuple<string, byte[]>> _contents = new List<Tuple<string, byte[]>>();
 
-        public static LittleDocumentGenerator Create(string html)
+        public static LittleDocumentGenerator Create(string originalUrl, string html)
         {
             var document = new HtmlDocument();
             document.LoadHtml(html);
-            return new LittleDocumentGenerator(document);
+            return new LittleDocumentGenerator(originalUrl, document);
         }
 
-        private LittleDocumentGenerator(HtmlDocument document)
+        private LittleDocumentGenerator(string originalUrl, HtmlDocument document)
         {
+            _originalUrl = originalUrl;
             _document = document;
         }
 
@@ -44,6 +47,11 @@ namespace PocketIDE.Web.Msdn
                 Generate();
                 return _contents;
             }
+        }
+
+        public Encoding Encoding
+        {
+            get { return _document.Encoding; }
         }
 
         private void Generate()
@@ -104,12 +112,12 @@ namespace PocketIDE.Web.Msdn
             }
         }
 
-        private static void AddContentRegions(Dictionary<string, HtmlNode> contentNodes, HtmlNode bodyNode)
+        private void AddContentRegions(Dictionary<string, HtmlNode> contentNodes, HtmlNode bodyNode)
         {
             foreach (var contentNode in contentNodes)
             {
                 var titleNode = CreateContentTitleNode(contentNode);
-                var linkNode = CreateContentLinkNode(titleNode);
+                var linkNode = CreateContentLinkNode(titleNode, contentNode.Key);
                 var headerNode = CreateContentHeaderNode(linkNode);
                 bodyNode.AppendChild(headerNode);
             }
@@ -123,10 +131,11 @@ namespace PocketIDE.Web.Msdn
             return titleNode;
         }
 
-        private static HtmlNode CreateContentLinkNode(HtmlNode titleNode)
+        private HtmlNode CreateContentLinkNode(HtmlNode titleNode, string sectionName)
         {
             var linkNode = HtmlNode.CreateNode("<a />");
             linkNode.SetAttributeValue("class", "region-link");
+            linkNode.SetAttributeValue("data-content-url", Content.GetBlobUrl(_originalUrl, sectionName));
             linkNode.SetAttributeValue("href", "#");
             linkNode.AppendChild(titleNode);
             return linkNode;
@@ -142,8 +151,17 @@ namespace PocketIDE.Web.Msdn
 
         private void AddScript()
         {
+            var headNode = _document.DocumentNode.Element("html").Element("head");
             AddScriptReference(Properties.Settings.Default.JQueryUri);
-            AddScriptReference(Properties.Settings.Default.JQueryUIUri);
+//            AddScriptReference(Properties.Settings.Default.JQueryUIUri);
+            var scriptNode = HtmlNode.CreateNode("<script></script>");
+            scriptNode.SetAttributeValue("type", "text/javascript");
+            scriptNode.InnerHtml = Properties.Resources.MsdnJQueryCode;
+            headNode.AppendChild(scriptNode);
+
+            var baseNode = HtmlNode.CreateNode("<base />");
+            baseNode.SetAttributeValue("href", string.Format("{0}://{1}", HttpContext.Current.Request.Url.Scheme, HttpContext.Current.Request.Url.Authority));
+            headNode.AppendChild(baseNode);
         }
 
         private void AddScriptReference(string src)
@@ -172,10 +190,7 @@ namespace PocketIDE.Web.Msdn
 
         private byte[] WriteLittleDocument(KeyValuePair<string, HtmlNode> contentNode, HtmlNode bodyNode)
         {
-            bodyNode.AppendChild(contentNode.Value);
-            string htmlText = GetHtmlText();
-
-            return Encoding.Default.GetBytes(htmlText);
+            return Encoding.Default.GetBytes(contentNode.Value.OuterHtml);
         }
 
         private string GetHtmlText()
@@ -207,8 +222,13 @@ namespace PocketIDE.Web.Msdn
 
         private HtmlNode EmptyBodyNode()
         {
+            var mainBodyDiv = _document.GetElementbyId("mainBody");
+            var summaryDiv = mainBodyDiv.GetElementsByClassName("div", "summary").FirstOrDefault();
+            var summaryPara = summaryDiv != null ? summaryDiv.Element("p") : HtmlNode.CreateNode("<p />");
+            summaryPara.SetAttributeValue("class", "summary");
             var bodyNode = _document.DocumentNode.Element("html").Element("body");
-            bodyNode.RemoveAllChildren();
+            bodyNode.RemoveAll();
+            bodyNode.AppendChild(summaryPara);
             return bodyNode;
         }
 
@@ -218,8 +238,9 @@ namespace PocketIDE.Web.Msdn
             foreach (var node in regionTitleNodes)
             {
                 var spanNode = node.ParentNode.ParentNode;
-                contentNodes[node.InnerText.ToLower()] = spanNode;
                 spanNode.Remove();
+                spanNode.Element("div").Remove();
+                contentNodes[node.InnerText.ToLower()] = spanNode;
             }
         }
 

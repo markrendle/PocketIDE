@@ -21,6 +21,7 @@ namespace PocketIDE.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute("Msdn", "en-us/{*id}", new {controller = "Msdn", action = "Index"});
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters

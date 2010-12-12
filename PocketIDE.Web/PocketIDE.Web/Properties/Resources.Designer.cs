@@ -71,5 +71,25 @@ namespace PocketIDE.Web.Properties {
                 return ResourceManager.GetString("CustomCss", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to $(function () {
+        ///    $(&quot;.region-link&quot;).click(function () {
+        ///        if ($(this).next().length == 0) {
+        ///            contentUrl = $(this).attr(&quot;data-content-url&quot;);
+        ///            $(this).after(&apos;&lt;div&gt;&lt;/div&gt;&apos;).load(contentUrl);
+        ///        } else {
+        ///            $(this).next().toggle(&quot;hidden&quot;);
+        ///        }
+        ///        return false;
+        ///    });
+        ///});
+        ///.
+        /// </summary>
+        internal static string MsdnJQueryCode {
+            get {
+                return ResourceManager.GetString("MsdnJQueryCode", resourceCulture);
+            }
+        }
     }
 }

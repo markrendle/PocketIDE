@@ -13,17 +13,20 @@ namespace PocketIDE.Web.Msdn
     {
         private readonly CloudBlobClient _blobClient = CloudStorageHelper.CreateBlobClient();
 
-        public void SaveContentsAsync(string msdnUrl, IEnumerable<Tuple<string, byte>> contents)
+        public void SaveContentsAsync(string msdnUrl, IEnumerable<Tuple<string, byte[]>> contents)
         {
-            var folderName = MsdnUrlToFolderName(msdnUrl);
+            var folderName = Content.GetBlobFolderName(msdnUrl);
             var msdnContainer = _blobClient.GetContainerReference("msdn");
             var urlContainerReference = msdnContainer.GetDirectoryReference(folderName);
 
             foreach (var content in contents)
             {
-                var blob = urlContainerReference.GetPageBlobReference(content.Item1);
-                var memoryStream = new MemoryStream(content.Item2);
-                blob.BeginUploadFromStream(memoryStream, EndUploadFromStream, Tuple.Create(blob, memoryStream));
+                var blob = urlContainerReference.GetBlockBlobReference(content.Item1 + ".html");
+                blob.Properties.ContentType = "text/html";
+                using (var memoryStream = new MemoryStream(content.Item2))
+                {
+                    blob.UploadFromStream(memoryStream);
+                }
             }
         }
 

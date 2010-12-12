@@ -4,4 +4,8 @@ div.libCScode table th{background:#ddd;border-bottom-color:#c8cdde;border-bottom
 div.libCScode table td,pre.libCScode{background:#ddd;border-top-color:#c8cdde;border-top-style:solid;border-top-width:1px;padding-left:5px;padding-right:5px;padding-top:5px;margin:0 0 10px 0;display:block;font-family:Courier New,Verdana,Arial,Helvetica,sans-serif}
 div.libCScode pre{font-family:Courier New,Verdana,Arial,Helvetica,sans-serif;color:#006;white-space:pre-wrap;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;overflow:hidden;font-size:16px}
 div.fullWidth {width:100%}
-div.regionHeader {background-color:#DDDDDD}
+div.regionHeader {background-color:black;color:white;font-size:1.1em}
+p.summary {background-color:black;color:#eee}
+body {background-color:black}
+div {background-color:white}
+span {background-color:white}
