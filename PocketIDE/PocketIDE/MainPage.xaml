@@ -51,7 +51,12 @@
                      AcceptsReturn="True"
                      Text="{Binding Code, Mode=TwoWay}"
                      Style="{StaticResource TransparentTextBoxStyle}">
-            </TextBox>
+                    <TextBox.InputScope>
+                        <InputScope>
+                            <InputScopeName NameValue="Text"/>
+                        </InputScope>
+                    </TextBox.InputScope>
+                </TextBox>
         </Grid>
         </ScrollViewer>    
     </Grid>
