@@ -23,24 +23,6 @@ namespace PocketIDE.Web.Controllers
         //
         // POST: /Run/Create
 
-        public ActionResult Run()
-        {
-            const string code = @"using System;
-class Program {
-              public static void Main() {
-                Console.WriteLine(""Hello World!"");
-              }
-            }";
-            return Content(new Runner().CompileAndRun(code), "text/text");
-        }
-
-        [HttpPost]
-        public ActionResult Run(string code)
-        {
-            code = Encoding.UTF8.GetString(Convert.FromBase64String(code));
-            return Content(new Runner().CompileAndRun(code), "text/text");
-        }
-
         [HttpPost]
         public ActionResult Save(string name, string code)
         {

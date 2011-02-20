@@ -11,23 +11,21 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Phone.Shell;
 
 namespace PocketIDE.ViewModels
 {
     public class CodeEditorViewModel : INotifyPropertyChanged
     {
-        public CodeEditorViewModel()
-        {
-            _code = "using System;\rclass Program {\r  public static void Main() {\r    Console.WriteLine(\"IDE in a Phone!\");\r  }\r}";
-        }
-
-        private string _code;
+        private const string DefaultCode = "using System;\rclass Program {\r  public static void Main() {\r    Console.WriteLine(\"IDE in a Phone!\");\r  }\r}";
+        private string _code = DefaultCode;
+        
         public string Code
         {
             get { return _code; }
             set
             {
-                if (_code != value)
+                if (value != null && _code != value)
                 {
                     _code = value;
                     PropertyChanged.Raise(this, "Code");
@@ -66,5 +64,10 @@ namespace PocketIDE.ViewModels
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public void Reset()
+        {
+            Code = DefaultCode;
+        }
     }
 }

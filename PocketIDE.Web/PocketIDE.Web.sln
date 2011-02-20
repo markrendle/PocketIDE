@@ -3,13 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlAgilityPack", "HtmlAgilityPack\HtmlAgilityPack.csproj", "{193BB801-054F-4729-9D5D-FCE1E32594BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsdnContentProcessor", "MsdnContentProcessor\MsdnContentProcessor.csproj", "{1A417051-D38B-4CC4-B79B-874979071FBE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocketIDE.Web", "PocketIDE.Web\PocketIDE.Web.csproj", "{1B8BD32E-D067-4214-B404-BE8A5ED0706C}"
 EndProject
 Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "PocketIDE.Cloud", "PocketIDE.Cloud\PocketIDE.Cloud.ccproj", "{8AFB3C7D-768C-47CF-8AF1-2320BED5C15B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlAgilityPack.fx.4.0", "..\..\HtmlAgilityPack\Trunk\HtmlAgilityPack\HtmlAgilityPack.fx.4.0.csproj", "{1028002A-BBE2-4FF2-94B7-A8368A8F6887}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", "{FEFDC80F-E5B3-4200-A8B3-F7F52D5D07D2}"
+	ProjectSection(SolutionItems) = preProject
+		References\Exceptioneer.WebClient.dll = References\Exceptioneer.WebClient.dll
+		References\Microsoft.Net.Http.dll = References\Microsoft.Net.Http.dll
+		References\Microsoft.Net.Http.pdb = References\Microsoft.Net.Http.pdb
+		References\Microsoft.QueryComposition.dll = References\Microsoft.QueryComposition.dll
+		References\Microsoft.ServiceModel.Http.dll = References\Microsoft.ServiceModel.Http.dll
+		References\Microsoft.ServiceModel.Http.pdb = References\Microsoft.ServiceModel.Http.pdb
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +29,6 @@ Global
 		{193BB801-054F-4729-9D5D-FCE1E32594BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{193BB801-054F-4729-9D5D-FCE1E32594BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{193BB801-054F-4729-9D5D-FCE1E32594BF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1A417051-D38B-4CC4-B79B-874979071FBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A417051-D38B-4CC4-B79B-874979071FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A417051-D38B-4CC4-B79B-874979071FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A417051-D38B-4CC4-B79B-874979071FBE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1B8BD32E-D067-4214-B404-BE8A5ED0706C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1B8BD32E-D067-4214-B404-BE8A5ED0706C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B8BD32E-D067-4214-B404-BE8A5ED0706C}.Release|Any CPU.ActiveCfg = Release|Any CPU

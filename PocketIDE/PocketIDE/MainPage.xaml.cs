@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
+using System.IO.IsolatedStorage;
 using System.Linq;
-using System.Net;
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using PocketIDE.Local;
 
 namespace PocketIDE
 {
-    public partial class MainPage : PhoneApplicationPage
+    public partial class MainPage
     {
         private readonly SyntaxHighlighter _highlighter;
         private int _lastCodeLength;
@@ -44,11 +38,6 @@ namespace PocketIDE
             NavigationService.Navigate(new Uri("/BuildRunOutput.xaml", UriKind.Relative));
         }
 
-        private void FontSizeDownButtonClick(object sender, EventArgs e)
-        {
-            ColorTextBlock.FontSize = CodeTextBox.FontSize -= 2.0;
-        }
-
         private void CodeTextBoxTextChanged(object sender, TextChangedEventArgs e)
         {
             if (CodeHasGotLonger())
@@ -62,6 +51,7 @@ namespace PocketIDE
                 }
             }
             _highlighter.Highlight(CodeTextBox.Text);
+            App.ViewModel.CodeEditorViewModel.Code = CodeTextBox.Text;
         }
 
         private void IndentNewLine(int caretPosition)
@@ -100,7 +90,8 @@ namespace PocketIDE
             if (snippetExpander != null)
             {
                 CodeTextBox.TextChanged -= CodeTextBoxTextChanged;
-                CodeTextBox.Text = snippetExpander.NewText;
+                App.ViewModel.CodeEditorViewModel.Code = snippetExpander.NewText;
+//                CodeTextBox.Text = snippetExpander.NewText;
                 CodeTextBox.SelectionStart = snippetExpander.NewCaretPosition;
                 CodeTextBox.TextChanged += CodeTextBoxTextChanged;
                 _highlighter.Highlight(CodeTextBox.Text);
@@ -134,6 +125,22 @@ namespace PocketIDE
         {
             App.ViewModel.CodeEditorViewModel.Code = CodeTextBox.Text;
             NavigationService.Navigate(new Uri("/SaveAsPage.xaml", UriKind.Relative));
+        }
+
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            App.ViewModel.CodeEditorViewModel.Code = new CurrentCodePersister().Load();
+            base.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatingFrom(System.Windows.Navigation.NavigatingCancelEventArgs e)
+        {
+            new CurrentCodePersister().Save(App.ViewModel.CodeEditorViewModel.Code);
+        }
+
+        private void NewMenuItemClick(object sender, EventArgs e)
+        {
+            App.ViewModel.CodeEditorViewModel.Reset();
         }
     }
 }

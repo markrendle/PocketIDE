@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Microsoft.ServiceModel.Http;
+using PocketIDE.Web.Code;
 
 namespace PocketIDE.Web
 {
@@ -32,10 +35,22 @@ namespace PocketIDE.Web
 
         protected void Application_Start()
         {
+            RegisterWcfRoutes();
+
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+        }
+
+        private static void RegisterWcfRoutes()
+        {
+            // use MEF for providing instances
+            var catalog = new AssemblyCatalog(typeof(MvcApplication).Assembly);
+            var container = new CompositionContainer(catalog);
+            var configuration = new CodeConfiguration(container);
+
+            RouteTable.Routes.AddServiceRoute<CodeResource>("code", configuration);
         }
     }
 }

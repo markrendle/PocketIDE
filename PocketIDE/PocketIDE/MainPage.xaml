@@ -101,6 +101,9 @@
                                             Text="Settings"
                                             Click="SettingsButtonClick"/>
             <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="NewMenuItem"
+                                              Text="New"
+                                              Click="NewMenuItemClick" />
                 <shell:ApplicationBarMenuItem x:Name="OpenMenuItem"
                                               Text="Open..."
                                               Click="OpenMenuItemClick"/>

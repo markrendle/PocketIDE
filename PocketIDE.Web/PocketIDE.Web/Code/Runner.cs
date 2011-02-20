@@ -11,7 +11,7 @@ namespace PocketIDE.Web.Code
 {
     public class Runner
     {
-        public string CompileAndRun(string code)
+        public RunResult CompileAndRun(string code)
         {
             try
             {
@@ -19,13 +19,13 @@ namespace PocketIDE.Web.Code
 
                 if (compiled.Errors.HasErrors)
                 {
-                    return ReturnErrors(compiled);
+                    return new RunResult {CompileError = ReturnErrors(compiled)};
                 }
-                return ReturnOutput(compiled);
+                return new RunResult {Output = ReturnOutput(compiled)};
             }
             catch (Exception ex)
             {
-                return ex.ToString();
+                return new RunResult {Output = ex.ToString()};
             }
         }
 
@@ -45,7 +45,7 @@ namespace PocketIDE.Web.Code
         private static string ReturnErrors(CompilerResults compiled)
         {
             var builder = new StringBuilder();
-            builder.AppendLine("Compilation error:");
+            builder.AppendLine("Compilation errors:");
             compiled.Errors.Cast<CompilerError>()
                 .Select(ce => ce.ErrorText)
                 .ToList()
@@ -55,13 +55,17 @@ namespace PocketIDE.Web.Code
 
         private static CompilerResults Compile(string code)
         {
-            CompilerResults compiled;
             using (var csc = new CSharpCodeProvider(new Dictionary<string, string>() { { "CompilerVersion", "v4.0" } }))
             {
                 var parameters = new CompilerParameters(new[] { "mscorlib.dll", "System.Core.dll" }) { GenerateInMemory = true, IncludeDebugInformation = false };
-                compiled = csc.CompileAssemblyFromSource(parameters, code);
+                return csc.CompileAssemblyFromSource(parameters, code);
             }
-            return compiled;
         }
+    }
+
+    public class RunResult
+    {
+        public string Output { get; set; }
+        public string CompileError { get; set; }
     }
 }
