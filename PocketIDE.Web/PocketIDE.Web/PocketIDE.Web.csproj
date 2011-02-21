@@ -89,6 +89,7 @@
     <Compile Include="CodeConfiguration.cs" />
     <Compile Include="Code\CodeResource.cs" />
     <Compile Include="Code\Loader.cs" />
+    <Compile Include="Code\Program.cs" />
     <Compile Include="Code\Runner.cs" />
     <Compile Include="Code\Saver.cs" />
     <Compile Include="Controllers\HomeController.cs" />

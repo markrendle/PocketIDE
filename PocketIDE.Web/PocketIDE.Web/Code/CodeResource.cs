@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.ServiceModel;
 using System.ComponentModel.Composition;
 using System.ServiceModel.Web;
@@ -20,17 +22,17 @@ namespace PocketIDE.Web.Code
         }
 
         [WebInvoke(UriTemplate = "run", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
-        public RunResult Run(Program program)
+        public RunResult Run(Program program, HttpResponseMessage responseMessage)
         {
+            if (!program.IsTrusted())
+            {
+                responseMessage.StatusCode = HttpStatusCode.Forbidden;
+                responseMessage.Content = new StringContent("Request does not appear to be from a trusted source.");
+                return null;
+            }
+
             var code = Encoding.UTF8.GetString(Convert.FromBase64String(program.Code));
             return new Runner().CompileAndRun(code);
         }
-    }
-
-    public class Program
-    {
-        public string AuthorId { get; set; }
-        public string Name { get; set; }
-        public string Code { get; set; }
     }
 }

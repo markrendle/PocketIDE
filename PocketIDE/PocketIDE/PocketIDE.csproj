@@ -90,6 +90,7 @@
     <Compile Include="OpenPage.xaml.cs">
       <DependentUpon>OpenPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaveAsPage.xaml.cs">
       <DependentUpon>SaveAsPage.xaml</DependentUpon>

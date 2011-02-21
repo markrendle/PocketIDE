@@ -45,18 +45,12 @@ namespace PocketIDE
                                   Name = string.Empty,
                                   Code = Convert.ToBase64String(Encoding.UTF8.GetBytes(code))
                               };
+            program.Hash = Program.CreateHash(program);
             var writer =
                 new JsonWriter(
                     new DataWriterSettings(
                         new ConventionResolverStrategy(ConventionResolverStrategy.WordCasing.PascalCase)));
             return writer.Write(program);
         }
-    }
-
-    public class Program
-    {
-        public string AuthorId { get; set; }
-        public string Name { get; set; }
-        public string Code { get; set; }
     }
 }
