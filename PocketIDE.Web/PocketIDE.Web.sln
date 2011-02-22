@@ -21,6 +21,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocketIDE.Web.Test", "PocketIDE.Web.Test\PocketIDE.Web.Test.csproj", "{BB94E17D-1E7D-459D-944E-DC10910FD94D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocketIDE.Web.Sandbox", "PocketIDE.Web.Sandbox\PocketIDE.Web.Sandbox.csproj", "{5436C16D-F214-459A-AA02-CD5DAE873D6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocketIDE.Web.Sandbox.Test", "PocketIDE.Web.Sandbox.Test\PocketIDE.Web.Sandbox.Test.csproj", "{81483638-F50D-452C-98CB-3C019878BD21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,14 @@ Global
 		{BB94E17D-1E7D-459D-944E-DC10910FD94D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB94E17D-1E7D-459D-944E-DC10910FD94D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB94E17D-1E7D-459D-944E-DC10910FD94D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5436C16D-F214-459A-AA02-CD5DAE873D6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5436C16D-F214-459A-AA02-CD5DAE873D6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5436C16D-F214-459A-AA02-CD5DAE873D6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5436C16D-F214-459A-AA02-CD5DAE873D6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81483638-F50D-452C-98CB-3C019878BD21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81483638-F50D-452C-98CB-3C019878BD21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81483638-F50D-452C-98CB-3C019878BD21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81483638-F50D-452C-98CB-3C019878BD21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

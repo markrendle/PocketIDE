@@ -8,6 +8,7 @@ using System.ComponentModel.Composition;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Web;
+using PocketIDE.Web.Sandbox;
 
 namespace PocketIDE.Web.Code
 {
@@ -32,7 +33,14 @@ namespace PocketIDE.Web.Code
             }
 
             var code = Encoding.UTF8.GetString(Convert.FromBase64String(program.Code));
-            return new Runner().CompileAndRun(code);
+            string output;
+            new Runner().CompileAndRun(code, out output);
+            return new RunResult {Output = output};
         }
+    }
+
+    public class RunResult
+    {
+        public string Output { get; set; }
     }
 }

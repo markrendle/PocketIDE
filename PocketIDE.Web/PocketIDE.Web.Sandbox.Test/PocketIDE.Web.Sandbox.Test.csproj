@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{BB94E17D-1E7D-459D-944E-DC10910FD94D}</ProjectGuid>
+    <ProjectGuid>{81483638-F50D-452C-98CB-3C019878BD21}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PocketIDE.Web.Test</RootNamespace>
-    <AssemblyName>PocketIDE.Web.Test</AssemblyName>
+    <RootNamespace>PocketIDE.Web.Sandbox.Test</RootNamespace>
+    <AssemblyName>PocketIDE.Web.Sandbox.Test</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Net.Http">
-      <HintPath>..\References\Microsoft.Net.Http.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,26 +41,23 @@
     <Reference Include="xunit">
       <HintPath>..\packages\xunit.1.7.0.1540\lib\xunit.dll</HintPath>
     </Reference>
-    <Reference Include="xunit.extensions">
-      <HintPath>..\packages\xunit.extensions.1.7.0.1540\lib\xunit.extensions.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeResourceTest.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RunnerTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PocketIDE.Web\PocketIDE.Web.csproj">
-      <Project>{1B8BD32E-D067-4214-B404-BE8A5ED0706C}</Project>
-      <Name>PocketIDE.Web</Name>
+    <ProjectReference Include="..\PocketIDE.Web.Sandbox\PocketIDE.Web.Sandbox.csproj">
+      <Project>{5436C16D-F214-459A-AA02-CD5DAE873D6B}</Project>
+      <Name>PocketIDE.Web.Sandbox</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -20,5 +20,17 @@ namespace PocketIDE.Web.Test
             Assert.Null(actual);
             Assert.Equal(HttpStatusCode.Forbidden, responseMessage.StatusCode);
         }
+
+        [Fact]
+        public void CorrectShouldRun()
+        {
+            var program = new Program { AuthorId = "Foo", Code = Convert.ToBase64String(Encoding.UTF8.GetBytes(Properties.Resources.HelloWorld)) };
+            program.Hash = Program.CreateHash(program);
+            var responseMessage = new HttpResponseMessage();
+            var actual = new CodeResource().Run(program, responseMessage);
+            Assert.NotNull(actual);
+            Assert.Equal("Hello World!", actual.Output);
+            Assert.Equal(HttpStatusCode.OK, responseMessage.StatusCode);
+        }
     }
 }

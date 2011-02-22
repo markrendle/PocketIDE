@@ -32,6 +32,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>PocketIDE.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Net.Http">
       <HintPath>..\References\Microsoft.Net.Http.dll</HintPath>
@@ -90,7 +96,6 @@
     <Compile Include="Code\CodeResource.cs" />
     <Compile Include="Code\Loader.cs" />
     <Compile Include="Code\Program.cs" />
-    <Compile Include="Code\Runner.cs" />
     <Compile Include="Code\Saver.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MsdnController.cs" />
@@ -128,6 +133,7 @@
     <Content Include="Content\Msdn.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <None Include="PocketIDE.snk" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -188,6 +194,10 @@
     <ProjectReference Include="..\..\..\HtmlAgilityPack\Trunk\HtmlAgilityPack\HtmlAgilityPack.fx.4.0.csproj">
       <Project>{1028002A-BBE2-4FF2-94B7-A8368A8F6887}</Project>
       <Name>HtmlAgilityPack.fx.4.0</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PocketIDE.Web.Sandbox\PocketIDE.Web.Sandbox.csproj">
+      <Project>{5436C16D-F214-459A-AA02-CD5DAE873D6B}</Project>
+      <Name>PocketIDE.Web.Sandbox</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
