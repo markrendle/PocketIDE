@@ -10,6 +10,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using JsonFx.Json;
+using JsonFx.Serialization;
+using JsonFx.Serialization.Resolvers;
 using Microsoft.Phone.Controls;
 
 namespace PocketIDE
@@ -25,14 +28,26 @@ namespace PocketIDE
         {
             var webClient = new WebClient();
             webClient.DownloadStringCompleted += ListDownloadStringCompleted;
-            webClient.DownloadStringAsync(new Uri("http://pocketide.cloudapp.net/code/list?nocache=" + Environment.TickCount));
+            webClient.DownloadStringAsync(new Uri("http://localhost:81/code/list/" + Code.GetWindowsLiveAnonymousId() + "?nocache=" + Environment.TickCount));
         }
 
         void ListDownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
-            foreach (var name in e.Result.Split(';'))
+            ProgressBar.IsIndeterminate = false;
+            if (!string.IsNullOrEmpty(e.Result))
             {
-                MainListBox.Items.Add(name);
+                var reader = new JsonReader();
+
+                var result = reader.Read<IEnumerable<string>>(e.Result);
+                foreach (var name in result)
+                {
+                    MainListBox.Items.Add(name);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No Saved code was found.");
+                NavigationService.GoBack();
             }
         }
 

@@ -36,9 +36,13 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>PocketIDE.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Exceptioneer.WebClient">
+      <HintPath>..\References\Exceptioneer.WebClient.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Net.Http">
       <HintPath>..\References\Microsoft.Net.Http.dll</HintPath>
     </Reference>
@@ -53,7 +57,13 @@
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.2.2.1.0\lib\.NetFramework 4.0\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -96,15 +106,19 @@
     <Compile Include="Code\CodeResource.cs" />
     <Compile Include="Code\Loader.cs" />
     <Compile Include="Code\Program.cs" />
+    <Compile Include="Code\ProgramAuditor.cs" />
+    <Compile Include="Code\RunResult.cs" />
     <Compile Include="Code\Saver.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MsdnController.cs" />
-    <Compile Include="Controllers\CodeController.cs" />
+    <Compile Include="Controllers\MyCodeController.cs" />
     <Compile Include="Data\CloudStorageHelper.cs" />
     <Compile Include="Data\ProcessMsdnContentQueue.cs" />
+    <Compile Include="Data\UserContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\User.cs" />
     <Compile Include="Msdn\Content.cs" />
     <Compile Include="Msdn\ContentProcessor.cs" />
     <Compile Include="Msdn\ContentSaver.cs" />
@@ -116,6 +130,7 @@
     <Compile Include="Msdn\HtmlNodeExtensions.cs" />
     <Compile Include="Msdn\LittleDocumentGenerator.cs" />
     <Compile Include="MvcUtil\RequireRouteValuesAttribute.cs" />
+    <Compile Include="NInjectFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -133,14 +148,16 @@
     <Content Include="Content\Msdn.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <None Include="PocketIDE.snk" />
+    <Content Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Resources\CustomCss.txt" />
     <None Include="Resources\MsdnJQueryCode.txt" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -166,23 +183,22 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Code\View.cshtml" />
+    <Content Include="Views\MyCode\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Views\Run\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Msdn\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Code\Index.cshtml" />
+    <Content Include="Views\MyCode\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Code\Code.cshtml" />
+    <Content Include="Views\MyCode\Code.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

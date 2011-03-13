@@ -8,19 +8,36 @@ namespace PocketIDE.Web.Code
 {
     public class Loader
     {
-        public IEnumerable<string> List()
+        private readonly IBlobHelper _blobHelper;
+
+        public Loader(IBlobHelper blobHelper)
+        {
+            _blobHelper = blobHelper;
+        }
+
+        public IEnumerable<string> List(Guid userId)
         {
             var blobClient = CloudStorageHelper.CreateBlobClient();
-            var codeContainer = blobClient.GetContainerReference("code");
+            var codeContainer = blobClient.GetContainerReference(userId.ToToken());
             return codeContainer.ListBlobs().Select(blobItem => blobItem.Uri.PathAndQuery.Split('/').LastOrDefault());
         }
 
-        public string Load(string name)
+        public Program Load(Guid userId, string name)
         {
-            var blobClient = CloudStorageHelper.CreateBlobClient();
-            var codeContainer = blobClient.GetContainerReference("code");
-            var blob = codeContainer.GetBlockBlobReference(name);
-            return blob.DownloadText();
+            return _blobHelper.LoadObject<Program>(userId.ToToken(), name.ToToken());
+        }
+    }
+
+    public static class StringEx
+    {
+        public static string ToToken(this string source)
+        {
+            return new string(source.Where(c => c == '.' || char.IsLetterOrDigit(c)).ToArray());
+        }
+
+        public static string ToToken(this Guid source)
+        {
+            return source.ToString("N");
         }
     }
 }

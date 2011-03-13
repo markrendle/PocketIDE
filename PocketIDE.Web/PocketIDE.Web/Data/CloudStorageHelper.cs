@@ -13,6 +13,11 @@ namespace PocketIDE.Web.Data
         private static readonly CloudStorageAccount StorageAccount =
             CloudStorageAccount.Parse(RoleEnvironment.GetConfigurationSettingValue("ConnectionString"));
 
+        public static CloudTableClient CreateTableClient()
+        {
+            return StorageAccount.CreateCloudTableClient();
+        }
+
         public static CloudQueueClient CreateQueueClient()
         {
             return StorageAccount.CreateCloudQueueClient();

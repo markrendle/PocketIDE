@@ -24,6 +24,9 @@ namespace PocketIDE
         
         public static string GetWindowsLiveAnonymousId()
         {
+#if(DEBUG)
+            return "DEBUG";
+#else
             string result = string.Empty;
             object anid;
             if (UserExtendedProperties.TryGetValue("ANID", out anid))
@@ -35,14 +38,15 @@ namespace PocketIDE
             }
 
             return result;
+#endif
         }
 
-        public static string ToBase64Json(string code)
+        public static string ToBase64Json(string code, string name = null)
         {
             var program = new Program
                               {
                                   AuthorId = GetWindowsLiveAnonymousId(),
-                                  Name = string.Empty,
+                                  Name = name ?? string.Empty,
                                   Code = Convert.ToBase64String(Encoding.UTF8.GetBytes(code))
                               };
             program.Hash = Program.CreateHash(program);

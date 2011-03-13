@@ -19,7 +19,7 @@ namespace PocketIDE
     public class CodeRunner
     {
 //        private static readonly Uri CodeRunUri = new Uri("http://pocketide.cloudapp.net/code/run");
-        private static readonly Uri CodeRunUri = new Uri("http://localhost:81/code/run");
+        private static readonly Uri CodeRunUri = new Uri("http://localhost:2906/code/run");
         private readonly CodeEditorViewModel _codeEditorViewModel;
 
         public CodeRunner(CodeEditorViewModel codeEditorViewModel)

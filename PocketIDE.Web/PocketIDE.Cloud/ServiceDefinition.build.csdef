@@ -9,7 +9,7 @@
   **********************************************************************************************
 -->
 <ServiceDefinition name="PocketIDE.Web.Cloud" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
-  <WebRole name="PocketIDE.Web">
+  <WebRole name="PocketIDE.Web" vmsize="ExtraSmall">
     <Sites>
       <Site name="Web">
         <Bindings>

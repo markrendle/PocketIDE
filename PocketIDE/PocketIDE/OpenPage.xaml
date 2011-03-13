@@ -5,8 +5,7 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="PortraitOrLandscape"
@@ -16,18 +15,22 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <Controls:PerformanceProgressBar x:Name="ProgressBar"
+                                         IsIndeterminate="True" />
+
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+        <StackPanel x:Name="TitlePanel" Grid.Row="1" Margin="12,17,0,28">
             <TextBlock x:Name="ApplicationTitle" Text="POCKET C#" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock x:Name="PageTitle" Text="open existing code" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle2Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <ScrollViewer Grid.Row="1"
+        <ScrollViewer Grid.Row="2"
                       Margin="12,0,12,0">
             <ListBox x:Name="MainListBox"
                      Margin="0,0,-12,0"

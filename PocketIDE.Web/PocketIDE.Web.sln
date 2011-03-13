@@ -11,7 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlAgilityPack.fx.4.0", ".
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", "{FEFDC80F-E5B3-4200-A8B3-F7F52D5D07D2}"
 	ProjectSection(SolutionItems) = preProject
-		References\Exceptioneer.WebClient.dll = References\Exceptioneer.WebClient.dll
 		References\Microsoft.Net.Http.dll = References\Microsoft.Net.Http.dll
 		References\Microsoft.Net.Http.pdb = References\Microsoft.Net.Http.pdb
 		References\Microsoft.QueryComposition.dll = References\Microsoft.QueryComposition.dll

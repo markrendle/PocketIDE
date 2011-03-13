@@ -8,6 +8,7 @@ using System.ComponentModel.Composition;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Web;
+using PocketIDE.Web.Data;
 using PocketIDE.Web.Sandbox;
 
 namespace PocketIDE.Web.Code
@@ -16,11 +17,13 @@ namespace PocketIDE.Web.Code
     [Export]
     public class CodeResource
     {
+#if(DEBUG)
         [WebGet(UriTemplate = "run")]
         public string RunTest()
         {
             return "Hello.";
         }
+#endif
 
         [WebInvoke(UriTemplate = "run", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
         public RunResult Run(Program program, HttpResponseMessage responseMessage)
@@ -32,15 +35,45 @@ namespace PocketIDE.Web.Code
                 return null;
             }
 
+            NInjectFactory.Get<ProgramAuditor>().Audit(program);
+
             var code = Encoding.UTF8.GetString(Convert.FromBase64String(program.Code));
             string output;
-            new Runner().CompileAndRun(code, out output);
-            return new RunResult {Output = output};
+            return new Runner().CompileAndRun(code, out output)
+                       ? new RunResult {Output = output}
+                       : new RunResult {CompileError = output};
         }
-    }
 
-    public class RunResult
-    {
-        public string Output { get; set; }
+        [WebInvoke(UriTemplate = "save", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
+        public void Save(Program program, HttpResponseMessage responseMessage)
+        {
+            if (!program.IsTrusted())
+            {
+                responseMessage.StatusCode = HttpStatusCode.Forbidden;
+                responseMessage.Content = new StringContent("Request does not appear to be from a trusted source.");
+                return;
+            }
+
+            var code = Encoding.UTF8.GetString(Convert.FromBase64String(program.Code));
+            var user = new UserContext().GetOrAdd(program.AuthorId);
+            var saver = NInjectFactory.Get<Saver>();
+            saver.Save(user.UserId.ToString("N"), program.Name, code);
+        }
+
+        [WebGet(UriTemplate = "open/{windowsLiveAnonymousId}/{name}", ResponseFormat = WebMessageFormat.Json)]
+        public Program Open(string windowsLiveAnonymousId, string name, HttpResponseMessage responseMessage)
+        {
+            var user = new UserContext().GetOrAdd(windowsLiveAnonymousId);
+            var loader = NInjectFactory.Get<Loader>();
+            return loader.Load(user.UserId, name);
+        }
+
+        [WebGet(UriTemplate = "list/{windowsLiveAnonymousId}", ResponseFormat = WebMessageFormat.Json)]
+        public List<string> List(string windowsLiveAnonymousId, HttpResponseMessage responseMessage)
+        {
+            var user = new UserContext().GetOrAdd(windowsLiveAnonymousId);
+            var loader = NInjectFactory.Get<Loader>();
+            return loader.List(user.UserId).ToList();
+        }
     }
 }

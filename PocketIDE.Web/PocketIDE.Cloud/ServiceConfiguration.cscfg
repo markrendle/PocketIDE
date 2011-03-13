@@ -3,8 +3,8 @@
   <Role name="PocketIDE.Web">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=pocketide;AccountKey=uY9aNcgvMDMnKD9YwAk2LMZGUun9jp7DhUQsotWzdbIAKadxTNWvkX4Pa2H+aBZTd45o0ZNTkc5+7PE71NYAsQ==" />
-      <Setting name="ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=pocketide;AccountKey=uY9aNcgvMDMnKD9YwAk2LMZGUun9jp7DhUQsotWzdbIAKadxTNWvkX4Pa2H+aBZTd45o0ZNTkc5+7PE71NYAsQ==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=pocketide;AccountKey=5LoArUING3TmwHn8Siy5mGw5G5Czmcxucz74HzpUAX5aJzPR8V+6g+GsdgZguIljT9vb75fe+Tj3/MyW7pC4Wg==" />
+      <Setting name="ConnectionString" value="DefaultEndpointsProtocol=http;AccountName=pocketide;AccountKey=5LoArUING3TmwHn8Siy5mGw5G5Czmcxucz74HzpUAX5aJzPR8V+6g+GsdgZguIljT9vb75fe+Tj3/MyW7pC4Wg==" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>
