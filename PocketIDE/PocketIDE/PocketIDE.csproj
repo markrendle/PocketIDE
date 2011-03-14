@@ -71,6 +71,7 @@
     <Compile Include="Code.cs" />
     <Compile Include="CodeRunner.cs" />
     <Compile Include="CodeSaver.cs" />
+    <Compile Include="ErrorReport.cs" />
     <Compile Include="Extensions\EventHandlerExtensions.cs" />
     <Compile Include="Extensions\MaybeXElement.cs" />
     <Compile Include="Extensions\TextBoxExtensions.cs" />
@@ -100,12 +101,14 @@
     <Compile Include="Services\Bing.cs" />
     <Compile Include="Services\BingSearchCompletedEventArgs.cs" />
     <Compile Include="Services\BingSearchResult.cs" />
+    <Compile Include="Services\ErrorReporter.cs" />
     <Compile Include="SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Snippet.cs" />
     <Compile Include="SnippetExpander.cs" />
     <Compile Include="SyntaxHighlighter.cs" />
+    <Compile Include="UriFactory.cs" />
     <Compile Include="ViewModels\CodeEditorViewModel.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

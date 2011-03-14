@@ -65,7 +65,7 @@ namespace PocketIDE.Web.Code
         {
             var user = new UserContext().GetOrAdd(windowsLiveAnonymousId);
             var loader = NInjectFactory.Get<Loader>();
-            return loader.Load(user.UserId, name);
+            return loader.Load(user, name);
         }
 
         [WebGet(UriTemplate = "list/{windowsLiveAnonymousId}", ResponseFormat = WebMessageFormat.Json)]

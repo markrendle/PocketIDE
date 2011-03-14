@@ -35,7 +35,7 @@ namespace PocketIDE.Web.Controllers
                 var littleDocumentGenerator = LittleDocumentGenerator.Create(originalUrl, html);
                 html = Encoding.UTF8.GetString(littleDocumentGenerator.ProcessedDocument);
                 var toSave = littleDocumentGenerator.Contents.Append("root", littleDocumentGenerator.ProcessedDocument);
-                new ContentSaver().SaveContentsAsync(originalUrl, toSave);
+                new ContentSaver().SaveContentsAsync(originalUrl, toSave).Wait();
             }
             return Redirect(blobUrl);
 //            return Content(html, "text/html");

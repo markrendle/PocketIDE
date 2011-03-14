@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocketIDE.Web", "PocketIDE.
 EndProject
 Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "PocketIDE.Cloud", "PocketIDE.Cloud\PocketIDE.Cloud.ccproj", "{8AFB3C7D-768C-47CF-8AF1-2320BED5C15B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlAgilityPack.fx.4.0", "..\..\HtmlAgilityPack\Trunk\HtmlAgilityPack\HtmlAgilityPack.fx.4.0.csproj", "{1028002A-BBE2-4FF2-94B7-A8368A8F6887}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", "{FEFDC80F-E5B3-4200-A8B3-F7F52D5D07D2}"
 	ProjectSection(SolutionItems) = preProject
 		References\Microsoft.Net.Http.dll = References\Microsoft.Net.Http.dll
@@ -23,6 +21,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocketIDE.Web.Sandbox", "PocketIDE.Web.Sandbox\PocketIDE.Web.Sandbox.csproj", "{5436C16D-F214-459A-AA02-CD5DAE873D6B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocketIDE.Web.Sandbox.Test", "PocketIDE.Web.Sandbox.Test\PocketIDE.Web.Sandbox.Test.csproj", "{81483638-F50D-452C-98CB-3C019878BD21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlAgilityPack.fx.4.0", "HtmlAgilityPack\HtmlAgilityPack.fx.4.0.csproj", "{1028002A-BBE2-4FF2-94B7-A8368A8F6887}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,10 +42,6 @@ Global
 		{8AFB3C7D-768C-47CF-8AF1-2320BED5C15B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AFB3C7D-768C-47CF-8AF1-2320BED5C15B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AFB3C7D-768C-47CF-8AF1-2320BED5C15B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1028002A-BBE2-4FF2-94B7-A8368A8F6887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1028002A-BBE2-4FF2-94B7-A8368A8F6887}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1028002A-BBE2-4FF2-94B7-A8368A8F6887}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1028002A-BBE2-4FF2-94B7-A8368A8F6887}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB94E17D-1E7D-459D-944E-DC10910FD94D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BB94E17D-1E7D-459D-944E-DC10910FD94D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB94E17D-1E7D-459D-944E-DC10910FD94D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -58,6 +54,10 @@ Global
 		{81483638-F50D-452C-98CB-3C019878BD21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81483638-F50D-452C-98CB-3C019878BD21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81483638-F50D-452C-98CB-3C019878BD21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1028002A-BBE2-4FF2-94B7-A8368A8F6887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1028002A-BBE2-4FF2-94B7-A8368A8F6887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1028002A-BBE2-4FF2-94B7-A8368A8F6887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1028002A-BBE2-4FF2-94B7-A8368A8F6887}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,18 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.0">
-  <App xmlns="" ProductID="{5e5abe6d-4432-4e2b-ae2b-f3e6bff2ae50}" Title="Pocket C#" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="PocketIDE author" Description="Sample description" Publisher="PocketIDE">
+  <App xmlns="" ProductID="{5e5abe6d-4432-4e2b-ae2b-f3e6bff2ae50}"
+       Title="Pocket C#"
+       RuntimeType="Silverlight"
+       Version="1.0.0.0"
+       Genre="apps.normal"
+       Author="Mark Rendle"
+       Description="C# runner for Windows Phone 7"
+       Publisher="Infinite Pockets">
     <IconPath IsRelative="true" IsResource="false">ApplicationIcon.png</IconPath>
     <Capabilities>
-      <Capability Name="ID_CAP_GAMERSERVICES" />
-      <Capability Name="ID_CAP_IDENTITY_DEVICE" />
       <Capability Name="ID_CAP_IDENTITY_USER" />
-      <Capability Name="ID_CAP_LOCATION" />
-      <Capability Name="ID_CAP_MEDIALIB" />
-      <Capability Name="ID_CAP_MICROPHONE" />
       <Capability Name="ID_CAP_NETWORKING" />
-      <Capability Name="ID_CAP_PHONEDIALER" />
-      <Capability Name="ID_CAP_PUSH_NOTIFICATION" />
-      <Capability Name="ID_CAP_SENSORS" />
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
     </Capabilities>
     <Tasks>

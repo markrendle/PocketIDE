@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Web;
 using Microsoft.WindowsAzure.StorageClient;
 using PocketIDE.Web.Data;
@@ -13,21 +14,27 @@ namespace PocketIDE.Web.Msdn
     {
         private readonly CloudBlobClient _blobClient = CloudStorageHelper.CreateBlobClient();
 
-        public void SaveContentsAsync(string msdnUrl, IEnumerable<Tuple<string, byte[]>> contents)
+        public Task SaveContentsAsync(string msdnUrl, IEnumerable<Tuple<string, byte[]>> contents)
         {
-            var folderName = Content.GetBlobFolderName(msdnUrl);
-            var msdnContainer = _blobClient.GetContainerReference("msdn");
-            var urlContainerReference = msdnContainer.GetDirectoryReference(folderName);
+            return Task.Factory.StartNew(() =>
+                                             {
+                                                 var folderName = Content.GetBlobFolderName(msdnUrl);
+                                                 var msdnContainer = _blobClient.GetContainerReference("msdn");
+                                                 var urlContainerReference =
+                                                     msdnContainer.GetDirectoryReference(folderName);
 
-            foreach (var content in contents)
-            {
-                var blob = urlContainerReference.GetBlockBlobReference(content.Item1 + ".html");
-                blob.Properties.ContentType = "text/html";
-                using (var memoryStream = new MemoryStream(content.Item2))
-                {
-                    blob.UploadFromStream(memoryStream);
-                }
-            }
+                                                 foreach (var content in contents)
+                                                 {
+                                                     var blob =
+                                                         urlContainerReference.GetBlockBlobReference(content.Item1 +
+                                                                                                     ".html");
+                                                     blob.Properties.ContentType = "text/html";
+                                                     using (var memoryStream = new MemoryStream(content.Item2))
+                                                     {
+                                                         blob.UploadFromStream(memoryStream);
+                                                     }
+                                                 }
+                                             });
         }
 
         private static void EndUploadFromStream(IAsyncResult asyncResult)

@@ -18,7 +18,7 @@ namespace PocketIDE.ViewModels
     public class CodeEditorViewModel : INotifyPropertyChanged
     {
         private const string DefaultCode = "using System;\rclass Program {\r  public static void Main() {\r    Console.WriteLine(\"IDE in a Phone!\");\r  }\r}";
-        private string _code = DefaultCode;
+        private string _code;
         
         public string Code
         {
@@ -50,6 +50,8 @@ namespace PocketIDE.ViewModels
         }
 
         private double _fontSize = 18;
+        private bool _isRunning;
+
         public double FontSize
         {
             get { return _fontSize; }
@@ -59,6 +61,20 @@ namespace PocketIDE.ViewModels
                 {
                     _fontSize = value;
                     PropertyChanged.Raise(this, "FontSize");
+                }
+            }
+        }
+
+        public bool IsRunning
+        {
+            get {
+                return _isRunning;
+            }
+            set {
+                if (_isRunning != value)
+                {
+                    _isRunning = value;
+                    PropertyChanged.Raise(this, "IsRunning");
                 }
             }
         }

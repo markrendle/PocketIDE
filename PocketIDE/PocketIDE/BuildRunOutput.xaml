@@ -21,8 +21,14 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
+        <toolkit:PerformanceProgressBar x:Name="ProgressBar"
+                                        Grid.Row="0"
+                                        VerticalAlignment="Top"
+                                        IsIndeterminate="{Binding CodeEditorViewModel.IsRunning}" />
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="POCKET IDE" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="ApplicationTitle"
+                       Text="POCKET IDE"
+                       Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock x:Name="PageTitle" Text="build/run output" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle2Style}"/>
         </StackPanel>
 

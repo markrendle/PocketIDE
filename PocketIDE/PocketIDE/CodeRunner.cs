@@ -19,7 +19,7 @@ namespace PocketIDE
     public class CodeRunner
     {
 //        private static readonly Uri CodeRunUri = new Uri("http://pocketide.cloudapp.net/code/run");
-        private static readonly Uri CodeRunUri = new Uri("http://localhost:2906/code/run");
+        private static readonly Uri CodeRunUri = UriFactory.Create("code/run");
         private readonly CodeEditorViewModel _codeEditorViewModel;
 
         public CodeRunner(CodeEditorViewModel codeEditorViewModel)
@@ -29,6 +29,7 @@ namespace PocketIDE
 
         public void Run()
         {
+            _codeEditorViewModel.IsRunning = true;
             var json = Code.ToBase64Json(_codeEditorViewModel.Code);
             var webClient = new WebClient();
             webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
@@ -51,6 +52,7 @@ namespace PocketIDE
 
             var result = reader.Read<RunResult>(e.Result);
             _codeEditorViewModel.Output = !string.IsNullOrEmpty(result.CompileError) ? result.CompileError : result.Output;
+            _codeEditorViewModel.IsRunning = false;
         }
     }
 

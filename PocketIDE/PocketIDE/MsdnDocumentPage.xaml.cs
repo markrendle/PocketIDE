@@ -32,9 +32,9 @@ namespace PocketIDE
                 var url = searchResult.MsdnUrl;
                 if (url.StartsWith("http://msdn.microsoft.com/en-us/library", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    url = url.Replace("http://msdn.microsoft.com", "http://pocketide.cloudapp.net");
+                    url = url.Replace("http://msdn.microsoft.com/", "");
                 }
-                Browser.Source = new Uri(url);
+                Browser.Source = UriFactory.Create(url);
             }
         }
     }

@@ -14,6 +14,7 @@
     <AssemblyName>PocketIDE.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -103,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeConfiguration.cs" />
+    <Compile Include="Code\BlobHelper.cs" />
     <Compile Include="Code\CodeResource.cs" />
     <Compile Include="Code\Loader.cs" />
     <Compile Include="Code\Program.cs" />
@@ -207,7 +209,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\HtmlAgilityPack\Trunk\HtmlAgilityPack\HtmlAgilityPack.fx.4.0.csproj">
+    <ProjectReference Include="..\HtmlAgilityPack\HtmlAgilityPack.fx.4.0.csproj">
       <Project>{1028002A-BBE2-4FF2-94B7-A8368A8F6887}</Project>
       <Name>HtmlAgilityPack.fx.4.0</Name>
     </ProjectReference>

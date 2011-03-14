@@ -119,6 +119,10 @@ namespace PocketIDE
                 // An unhandled exception has occurred; break into the debugger
                 System.Diagnostics.Debugger.Break();
             }
+            if (MessageBox.Show("An unexpected error has occurred. Send error report?", "Error", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            {
+                
+            }
         }
 
         #region Phone application initialization

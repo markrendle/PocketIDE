@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using PocketIDE.Web.Data;
+using PocketIDE.Web.Models;
 
 namespace PocketIDE.Web.Code
 {
@@ -22,9 +24,17 @@ namespace PocketIDE.Web.Code
             return codeContainer.ListBlobs().Select(blobItem => blobItem.Uri.PathAndQuery.Split('/').LastOrDefault());
         }
 
-        public Program Load(Guid userId, string name)
+        public Program Load(User user, string name)
         {
-            return _blobHelper.LoadObject<Program>(userId.ToToken(), name.ToToken());
+            var code = _blobHelper.LoadText(user.UserId.ToToken(), name.ToToken());
+            var program = new Program
+                              {
+                                  AuthorId = user.WindowsLiveAnonymousId,
+                                  Name = name,
+                                  Code = Convert.ToBase64String(Encoding.UTF8.GetBytes(code)),
+                              };
+            program.Hash = Program.CreateHash(program);
+            return program;
         }
     }
 

@@ -129,7 +129,10 @@ namespace PocketIDE
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
-            App.ViewModel.CodeEditorViewModel.Code = new CurrentCodePersister().Load();
+            if (string.IsNullOrEmpty(App.ViewModel.CodeEditorViewModel.Code))
+                App.ViewModel.CodeEditorViewModel.Code = new CurrentCodePersister().Load();
+            if (string.IsNullOrEmpty(App.ViewModel.CodeEditorViewModel.Code))
+                App.ViewModel.CodeEditorViewModel.Reset();
             base.OnNavigatedTo(e);
         }
 
