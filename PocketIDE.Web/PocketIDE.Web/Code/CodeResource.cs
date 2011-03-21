@@ -60,6 +60,22 @@ namespace PocketIDE.Web.Code
             saver.Save(user.UserId.ToString("N"), program.Name, code);
         }
 
+        [WebInvoke(UriTemplate = "publish", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
+        public string Publish(Program program, HttpResponseMessage responseMessage)
+        {
+            if (!program.IsTrusted())
+            {
+                responseMessage.StatusCode = HttpStatusCode.Forbidden;
+                responseMessage.Content = new StringContent("Request does not appear to be from a trusted source.");
+                return string.Empty;
+            }
+
+            var code = Encoding.UTF8.GetString(Convert.FromBase64String(program.Code));
+            var user = new UserContext().GetOrAdd(program.AuthorId);
+            var publisher = NInjectFactory.Get<Publisher>();
+            return publisher.Publish(user.UserId.ToString("N"), program.Name, code);
+        }
+
         [WebGet(UriTemplate = "open/{windowsLiveAnonymousId}/{name}", ResponseFormat = WebMessageFormat.Json)]
         public Program Open(string windowsLiveAnonymousId, string name, HttpResponseMessage responseMessage)
         {

@@ -30,12 +30,12 @@ namespace PocketIDE.Web.Code
             return LoadObjectImpl<T>(containerName, name);
         }
 
-        public void SaveText(string containerName, string name, string text)
+        public string SaveText(string containerName, string name, string text, string contentType = "text/text")
         {
             ExceptionHelper.AssertParameterIsNotNull(() => containerName);
             ExceptionHelper.AssertParameterIsNotNull(() => name);
             ExceptionHelper.AssertParameterIsNotNull(() => text);
-            SaveTextImpl(containerName, name, text);
+            return SaveTextImpl(containerName, name, text, contentType);
         }
 
         public void SaveTextAsync(string containerName, string name, string text)
@@ -63,11 +63,12 @@ namespace PocketIDE.Web.Code
             Task.Factory.StartNew(() => SaveObjectImpl(containerName, name, obj));
         }
 
-        private static void SaveTextImpl(string containerName, string name, string text)
+        private static string SaveTextImpl(string containerName, string name, string text, string contentType = "text/text")
         {
             var blob = GetBlobReference(containerName, name);
-            blob.Properties.ContentType = "text/text";
+            blob.Properties.ContentType = contentType;
             blob.UploadText(text);
+            return blob.Uri.ToString();
         }
 
         private static string LoadTextImpl(string containerName, string name)

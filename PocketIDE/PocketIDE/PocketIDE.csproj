@@ -71,12 +71,18 @@
     <Compile Include="Code.cs" />
     <Compile Include="CodeRunner.cs" />
     <Compile Include="CodeSaver.cs" />
+    <Compile Include="CodePublisher.cs" />
     <Compile Include="ErrorReport.cs" />
     <Compile Include="Extensions\EventHandlerExtensions.cs" />
     <Compile Include="Extensions\MaybeXElement.cs" />
+    <Compile Include="Extensions\StringEx.cs" />
     <Compile Include="Extensions\TextBoxExtensions.cs" />
     <Compile Include="Extensions\XmlLinqExtensions.cs" />
     <Compile Include="HashSet.cs" />
+    <Compile Include="HelpPage.xaml.cs">
+      <DependentUpon>HelpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Local\AppSettings.cs" />
     <Compile Include="Local\CurrentCodePersister.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -95,6 +101,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublishCompletedEventArgs.cs" />
+    <Compile Include="PublishedPage.xaml.cs">
+      <DependentUpon>PublishedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PublishPage.xaml.cs">
+      <DependentUpon>PublishPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RunResult.cs" />
     <Compile Include="SaveAsPage.xaml.cs">
       <DependentUpon>SaveAsPage.xaml</DependentUpon>
     </Compile>
@@ -113,12 +127,17 @@
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MsdnViewModel.cs" />
+    <Compile Include="ViewModels\PublishViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="HelpPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +155,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OpenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PublishedPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PublishPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

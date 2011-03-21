@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceConfiguration serviceName="PocketIDE.Web.Cloud" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="1" osVersion="*">
   <Role name="PocketIDE.Web">
-    <Instances count="1" />
+    <Instances count="2" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=pocketide;AccountKey=5LoArUING3TmwHn8Siy5mGw5G5Czmcxucz74HzpUAX5aJzPR8V+6g+GsdgZguIljT9vb75fe+Tj3/MyW7pC4Wg==" />
       <Setting name="ConnectionString" value="DefaultEndpointsProtocol=http;AccountName=pocketide;AccountKey=5LoArUING3TmwHn8Siy5mGw5G5Czmcxucz74HzpUAX5aJzPR8V+6g+GsdgZguIljT9vb75fe+Tj3/MyW7pC4Wg==" />
     </ConfigurationSettings>
+    <Certificates>
+    </Certificates>
   </Role>
 </ServiceConfiguration>

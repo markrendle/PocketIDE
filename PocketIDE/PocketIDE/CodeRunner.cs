@@ -55,10 +55,4 @@ namespace PocketIDE
             _codeEditorViewModel.IsRunning = false;
         }
     }
-
-    public class RunResult
-    {
-        public string Output { get; set; }
-        public string CompileError { get; set; }
-    }
 }

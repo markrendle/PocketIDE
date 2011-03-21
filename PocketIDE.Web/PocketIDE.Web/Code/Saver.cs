@@ -32,7 +32,7 @@ namespace PocketIDE.Web.Code
 
     public interface IBlobHelper
     {
-        void SaveText(string containerName, string name, string text);
+        string SaveText(string containerName, string name, string text, string contentType = "text/text");
         void SaveTextAsync(string containerName, string name, string text);
 
         void SaveObject(string containerName, string name, object obj);

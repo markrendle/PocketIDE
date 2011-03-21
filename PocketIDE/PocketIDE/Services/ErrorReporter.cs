@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using JsonFx.Json;
 using JsonFx.Serialization;
 using JsonFx.Serialization.Resolvers;
+using PocketIDE.Extensions;
 
 namespace PocketIDE.Services
 {
@@ -18,7 +19,7 @@ namespace PocketIDE.Services
     {
         public void ReportError(Exception ex)
         {
-            var report = new ErrorReport {Text = ex.ToString()};
+            var report = new ErrorReport {Text = ex.ToString().Base64Encode()};
             report.Hash = ErrorReport.CreateHash(report);
             var writer =
                 new JsonWriter(
@@ -28,7 +29,15 @@ namespace PocketIDE.Services
 
             var webClient = new WebClient();
             webClient.Headers[HttpRequestHeader.ContentType] = "application/json";
-            webClient.UploadStringAsync(UriFactory.Create("reporterror"), json);
+            webClient.Headers[HttpRequestHeader.Accept] = "application/json";
+            Uri address = UriFactory.Create("exceptions/report");
+            webClient.UploadStringCompleted += UploadStringCompleted;
+            webClient.UploadStringAsync(address, json);
+        }
+
+        void UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
+        {
+            
         }
     }
 }

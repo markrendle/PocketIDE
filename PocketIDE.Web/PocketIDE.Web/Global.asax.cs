@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Microsoft.ServiceModel.Http;
 using PocketIDE.Web.Code;
+using PocketIDE.Web.Support;
 
 namespace PocketIDE.Web
 {
@@ -51,6 +52,7 @@ namespace PocketIDE.Web
             var configuration = new CodeConfiguration(container);
 
             RouteTable.Routes.AddServiceRoute<CodeResource>("code", configuration);
+            RouteTable.Routes.AddServiceRoute<ErrorResource>("exceptions", configuration);
         }
     }
 }

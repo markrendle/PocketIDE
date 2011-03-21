@@ -41,7 +41,8 @@
                      FontSize="{Binding FontSize}"
                        Foreground="Black"
                        FontFamily="Courier New"
-                       Margin="20" />
+                       Margin="20"
+                       TextWrapping="Wrap"/>
             <TextBox x:Name="CodeTextBox"
                      FontSize="{Binding FontSize}"
                      FontFamily="Courier New"
@@ -50,7 +51,8 @@
                      TextChanged="CodeTextBoxTextChanged"
                      AcceptsReturn="True"
                      Text="{Binding Code, Mode=TwoWay}"
-                     Style="{StaticResource TransparentTextBoxStyle}">
+                     Style="{StaticResource TransparentTextBoxStyle}"
+                     TextWrapping="Wrap">
                     <TextBox.InputScope>
                         <InputScope>
                             <InputScopeName NameValue="Text"/>
@@ -88,10 +90,10 @@
                                             IconUri="/Icons/appbar.transport.play.rest.png"
                                             Text="Run"
                                             Click="RunButtonClick"/>
-            <shell:ApplicationBarIconButton x:Name="MsdnButton"
+            <shell:ApplicationBarIconButton x:Name="HelpButton"
                                             IconUri="/Icons/appbar.questionmark.rest.png"
-                                            Text="MSDN"
-                                            Click="MsdnButtonClick"/>
+                                            Text="Help"
+                                            Click="HelpButtonClick"/>
             <shell:ApplicationBarIconButton x:Name="ExpandSnippetButton"
                                             IconUri="/Icons/appbar.expand.png"
                                             Text="Expand"
@@ -113,6 +115,9 @@
                 <shell:ApplicationBarMenuItem x:Name="SaveAsMenuItem"
                                               Text="Save As..."
                                               Click="SaveAsMenuItemClick"/>
+                <shell:ApplicationBarMenuItem x:Name="PublishMenuItem"
+                                              Text="Publish"
+                                              Click="PublishMenuItemClick"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

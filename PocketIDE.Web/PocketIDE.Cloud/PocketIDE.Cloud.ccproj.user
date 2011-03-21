@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <DeploymentBuildOnly>False</DeploymentBuildOnly>
-    <DeploymentAccountName>RendleCloud</DeploymentAccountName>
+    <DeploymentAccountName>InfinitePockets</DeploymentAccountName>
     <DeploymentHostedService>pocketide</DeploymentHostedService>
     <DeploymentHostedServiceLabel>Pocket IDE</DeploymentHostedServiceLabel>
     <DeploymentSlot>Production</DeploymentSlot>
@@ -10,7 +10,7 @@
     <DeploymentEnableWebDeploy>False</DeploymentEnableWebDeploy>
     <DeploymentStorageService>pocketide</DeploymentStorageService>
     <DeploymentStorageServiceLabel>pocketide</DeploymentStorageServiceLabel>
-    <DeploymentLabel>PocketIDE.Cloud - 12/12/2010 23:43:06</DeploymentLabel>
+    <DeploymentLabel>PocketIDE.Cloud - 21/03/2011 15:13:45</DeploymentLabel>
     <DeploymentPromptBeforeDeleting>True</DeploymentPromptBeforeDeleting>
     <DeploymentIsExpanded>False</DeploymentIsExpanded>
   </PropertyGroup>

@@ -11,12 +11,8 @@ using System.Windows.Shapes;
 
 namespace PocketIDE
 {
-    public static class UriFactory
+    public class AppSettings
     {
-        private const string Base = "http://pocketide.cloudapp.net/";
-        public static Uri Create(string path)
-        {
-            return new Uri(Base + path.TrimStart('/'));
-        }
+
     }
 }

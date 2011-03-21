@@ -3,8 +3,11 @@ using System.IO;
 using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Windows.Controls;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Marketplace;
+using Microsoft.Phone.Tasks;
 using PocketIDE.Local;
 
 namespace PocketIDE
@@ -24,13 +27,23 @@ namespace PocketIDE
             DataContext = App.ViewModel;
         }
 
-        private void MsdnButtonClick(object sender, EventArgs e)
+        private void HelpButtonClick(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/MsdnSearchPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/HelpPage.xaml", UriKind.Relative));
         }
 
         private void RunButtonClick(object sender, EventArgs e)
         {
+            if (AppSettings.Default.IsTrial && ++AppSettings.Default.TrialRunCount > 16)
+            {
+                var result = MessageBox.Show(
+                    "You have used your 16 trial runs. Please buy Pocket C# to help pay for the service hosting.",
+                    "Trial Expired", MessageBoxButton.OKCancel);
+                if (result == MessageBoxResult.OK)
+                {
+                    new MarketplaceDetailTask().Show();
+                }
+            }
             App.ViewModel.CodeEditorViewModel.Output = "Running...";
             App.ViewModel.CodeEditorViewModel.Code = CodeTextBox.Text;
 
@@ -144,6 +157,12 @@ namespace PocketIDE
         private void NewMenuItemClick(object sender, EventArgs e)
         {
             App.ViewModel.CodeEditorViewModel.Reset();
+        }
+
+        private void PublishMenuItemClick(object sender, EventArgs e)
+        {
+            App.ViewModel.CodeEditorViewModel.Code = CodeTextBox.Text;
+            NavigationService.Navigate(new Uri("/PublishPage.xaml", UriKind.Relative));
         }
     }
 }

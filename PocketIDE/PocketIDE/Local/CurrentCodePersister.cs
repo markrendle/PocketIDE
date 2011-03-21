@@ -17,6 +17,9 @@ namespace PocketIDE.Local
     {
         public string Load()
         {
+            if (IsolatedStorageSettings.ApplicationSettings.Contains("PublishUrl") && IsolatedStorageSettings.ApplicationSettings["PublishUrl"] != null)
+                App.ViewModel.PublishViewModel.Url = IsolatedStorageSettings.ApplicationSettings["PublishUrl"].ToString();
+
             using (var store = IsolatedStorageFile.GetUserStoreForApplication())
             {
                 if (!store.FileExists("__current.cs")) return null;
@@ -37,6 +40,7 @@ namespace PocketIDE.Local
             {
                 writer.Write(code);
             }
+            IsolatedStorageSettings.ApplicationSettings["PublishUrl"] = App.ViewModel.PublishViewModel.Url;
         }
 
     }

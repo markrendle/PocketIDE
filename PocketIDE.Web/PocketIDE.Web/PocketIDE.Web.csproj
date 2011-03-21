@@ -89,6 +89,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -109,6 +112,7 @@
     <Compile Include="Code\Loader.cs" />
     <Compile Include="Code\Program.cs" />
     <Compile Include="Code\ProgramAuditor.cs" />
+    <Compile Include="Code\Publisher.cs" />
     <Compile Include="Code\RunResult.cs" />
     <Compile Include="Code\Saver.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -144,6 +148,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="StringEx.cs" />
+    <Compile Include="Support\ErrorResource.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Icon.png" />
@@ -157,6 +163,7 @@
     </None>
     <None Include="Resources\CustomCss.txt" />
     <None Include="Resources\MsdnJQueryCode.txt" />
+    <None Include="Resources\PublishTemplate.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

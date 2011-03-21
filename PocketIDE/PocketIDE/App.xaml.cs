@@ -12,13 +12,14 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using PocketIDE.Services;
 using PocketIDE.ViewModels;
 
 namespace PocketIDE
 {
     public partial class App : Application
     {
-        private static MainViewModel viewModel = null;
+        private static MainViewModel _viewModel = null;
 
         /// <summary>
         /// A static ViewModel used by the views to bind against.
@@ -29,10 +30,10 @@ namespace PocketIDE
             get
             {
                 // Delay creation of the view model until necessary
-                if (viewModel == null)
-                    viewModel = new MainViewModel();
+                if (_viewModel == null)
+                    _viewModel = new MainViewModel();
 
-                return viewModel;
+                return _viewModel;
             }
         }
 
@@ -119,9 +120,18 @@ namespace PocketIDE
                 // An unhandled exception has occurred; break into the debugger
                 System.Diagnostics.Debugger.Break();
             }
-            if (MessageBox.Show("An unexpected error has occurred. Send error report?", "Error", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            if (MessageBox.Show("An unexpected error has occurred. Send error report?", "Error", MessageBoxButton.OKCancel) != MessageBoxResult.OK)
             {
-                
+                return;
+            }
+
+            try
+            {
+                new ErrorReporter().ReportError(e.ExceptionObject);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

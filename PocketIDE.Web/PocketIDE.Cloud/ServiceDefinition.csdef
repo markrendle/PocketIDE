@@ -17,5 +17,7 @@
     <ConfigurationSettings>
       <Setting name="ConnectionString" />
     </ConfigurationSettings>
+    <Certificates>
+    </Certificates>
   </WebRole>
 </ServiceDefinition>

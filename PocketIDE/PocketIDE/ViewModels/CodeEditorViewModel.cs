@@ -12,6 +12,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Shell;
+using PocketIDE.Local;
 
 namespace PocketIDE.ViewModels
 {
@@ -49,8 +50,9 @@ namespace PocketIDE.ViewModels
             }
         }
 
-        private double _fontSize = 18;
+        private double _fontSize = AppSettings.Default.FontSize;
         private bool _isRunning;
+        private string _publishName;
 
         public double FontSize
         {
@@ -79,11 +81,26 @@ namespace PocketIDE.ViewModels
             }
         }
 
+        public string PublishName
+        {
+            get {
+                return _publishName;
+            }
+            set {
+                if (_publishName != value)
+                {
+                    _publishName = value;
+                    PropertyChanged.Raise(this, "PublishName");
+                }
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void Reset()
         {
             Code = DefaultCode;
+            SaveName = string.Empty;
         }
     }
 }

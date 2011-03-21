@@ -8,6 +8,13 @@ namespace PocketIDE.ViewModels
     {
         private readonly MsdnViewModel _msdnViewModel = new MsdnViewModel();
         private readonly CodeEditorViewModel _codeEditorViewModel = new CodeEditorViewModel();
+        private readonly PublishViewModel _publishViewModel = new PublishViewModel();
+
+        public PublishViewModel PublishViewModel
+        {
+            get { return _publishViewModel; }
+        }
+
         public MainViewModel()
         {
             this.Items = new ObservableCollection<ItemViewModel>();
