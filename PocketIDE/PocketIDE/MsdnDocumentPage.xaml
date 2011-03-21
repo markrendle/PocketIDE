@@ -18,19 +18,16 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock x:Name="ApplicationTitle" Text="POCKET IDE" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock x:Name="PageTitle"
-                        Text="msdn"
+                        Text="msdn content"
                         Margin="9,-7,0,0"
                         Style="{StaticResource PhoneTextTitle2Style}" />
-            <TextBlock x:Name="DocumentTitle"
-                        Text="{Binding Title}"
-                       Margin="9,-7,0,0"
-                       TextWrapping="Wrap"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -38,8 +35,12 @@
                       Grid.Row="1"
                       Margin="12,0,12,0">
             <phone:WebBrowser x:Name="Browser"
-                              FontSize="20" />
+                              FontSize="20"/>
         </ScrollViewer>
+        <TextBlock Grid.Row="2"
+                   HorizontalAlignment="Right"
+                   FontStyle="Italic"
+                   FontSize="16">MSDN content © Microsoft Corporation</TextBlock>
     </Grid>
  
     <!--Sample code showing usage of ApplicationBar-->

@@ -93,9 +93,6 @@
     <Compile Include="MsdnDocumentPage.xaml.cs">
       <DependentUpon>MsdnDocumentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MsdnSearchPage.xaml.cs">
-      <DependentUpon>MsdnSearchPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="OpenPage.xaml.cs">
       <DependentUpon>OpenPage.xaml</DependentUpon>
     </Compile>
@@ -147,10 +144,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MsdnDocumentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MsdnSearchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
