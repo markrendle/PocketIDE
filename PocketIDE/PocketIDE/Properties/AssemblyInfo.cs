@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PocketIDE")]
+[assembly: AssemblyTitle("PocketCSharp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Infinite Pockets")]
-[assembly: AssemblyProduct("PocketIDE")]
+[assembly: AssemblyProduct("PocketCSharp")]
 [assembly: AssemblyCopyright("Copyright © Mark Rendle 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

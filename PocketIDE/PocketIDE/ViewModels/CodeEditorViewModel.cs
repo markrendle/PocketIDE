@@ -12,9 +12,9 @@ using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Shell;
-using PocketIDE.Local;
+using PocketCSharp.Local;
 
-namespace PocketIDE.ViewModels
+namespace PocketCSharp.ViewModels
 {
     public class CodeEditorViewModel : INotifyPropertyChanged
     {

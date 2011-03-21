@@ -16,7 +16,7 @@ using JsonFx.Serialization;
 using JsonFx.Serialization.Resolvers;
 using Microsoft.Phone.Controls;
 
-namespace PocketIDE
+namespace PocketCSharp
 {
     public partial class OpenPage : PhoneApplicationPage
     {

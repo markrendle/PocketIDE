@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 
-namespace PocketIDE.ViewModels
+namespace PocketCSharp.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {

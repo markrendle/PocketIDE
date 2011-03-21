@@ -2,9 +2,9 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
-using PocketIDE.Services;
+using PocketCSharp.Services;
 
-namespace PocketIDE.ViewModels
+namespace PocketCSharp.ViewModels
 {
     public class MsdnViewModel
     {

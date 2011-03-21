@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace PocketIDE.Local
+namespace PocketCSharp.Local
 {
     public class CurrentCodePersister
     {

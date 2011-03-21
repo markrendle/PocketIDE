@@ -12,7 +12,7 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Tasks;
 
-namespace PocketIDE
+namespace PocketCSharp
 {
     public partial class PublishPage : PhoneApplicationPage
     {

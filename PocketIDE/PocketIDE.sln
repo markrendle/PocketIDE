@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocketIDE", "PocketIDE\PocketIDE.csproj", "{98DF6BF4-6B01-4013-B92B-02A7BC94B29F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PocketCSharp", "PocketIDE\PocketCSharp.csproj", "{98DF6BF4-6B01-4013-B92B-02A7BC94B29F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

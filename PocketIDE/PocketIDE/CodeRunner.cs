@@ -12,9 +12,9 @@ using System.Windows.Shapes;
 using JsonFx.Json;
 using JsonFx.Serialization;
 using JsonFx.Serialization.Resolvers;
-using PocketIDE.ViewModels;
+using PocketCSharp.ViewModels;
 
-namespace PocketIDE
+namespace PocketCSharp
 {
     public class CodeRunner
     {

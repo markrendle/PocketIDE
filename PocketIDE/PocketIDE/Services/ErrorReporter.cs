@@ -11,9 +11,9 @@ using System.Windows.Shapes;
 using JsonFx.Json;
 using JsonFx.Serialization;
 using JsonFx.Serialization.Resolvers;
-using PocketIDE.Extensions;
+using PocketCSharp.Extensions;
 
-namespace PocketIDE.Services
+namespace PocketCSharp.Services
 {
     public class ErrorReporter
     {

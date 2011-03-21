@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace PocketIDE
+namespace PocketCSharp
 {
     public class Program
     {

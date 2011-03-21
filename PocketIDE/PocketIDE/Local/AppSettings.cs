@@ -11,7 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Marketplace;
 
-namespace PocketIDE.Local
+namespace PocketCSharp.Local
 {
     public class AppSettings
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PocketIDE.Services
+namespace PocketCSharp.Services
 {
     public class BingSearchCompletedEventArgs : EventArgs
     {

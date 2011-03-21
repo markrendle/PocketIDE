@@ -12,10 +12,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using PocketIDE.Services;
-using PocketIDE.ViewModels;
+using PocketCSharp.Services;
+using PocketCSharp.ViewModels;
 
-namespace PocketIDE
+namespace PocketCSharp
 {
     public partial class App : Application
     {
@@ -55,7 +55,7 @@ namespace PocketIDE
             if (System.Diagnostics.Debugger.IsAttached)
             {
                 // Display the current frame rate counters
-                Application.Current.Host.Settings.EnableFrameRateCounter = true;
+                //Application.Current.Host.Settings.EnableFrameRateCounter = true;
 
                 // Show the areas of the app that are being redrawn in each frame.
                 //Application.Current.Host.Settings.EnableRedrawRegions = true;

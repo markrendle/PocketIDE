@@ -11,9 +11,9 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
-using PocketIDE.ViewModels;
+using PocketCSharp.ViewModels;
 
-namespace PocketIDE
+namespace PocketCSharp
 {
     public partial class HelpPage : PhoneApplicationPage
     {

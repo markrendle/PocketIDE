@@ -1,4 +1,4 @@
-﻿namespace PocketIDE
+﻿namespace PocketCSharp
 {
     public class Snippet
     {

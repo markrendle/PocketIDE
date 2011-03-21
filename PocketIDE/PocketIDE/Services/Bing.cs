@@ -4,7 +4,7 @@ using System.Net;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace PocketIDE.Services
+namespace PocketCSharp.Services
 {
     public class Bing
     {

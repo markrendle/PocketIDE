@@ -15,7 +15,7 @@ using JsonFx.Serialization.Resolvers;
 using Microsoft.Phone.Info;
 using Microsoft.Phone.Shell;
 
-namespace PocketIDE
+namespace PocketCSharp
 {
     public class Code
     {

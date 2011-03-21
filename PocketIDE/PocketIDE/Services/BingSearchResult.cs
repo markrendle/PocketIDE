@@ -1,4 +1,4 @@
-﻿namespace PocketIDE.Services
+﻿namespace PocketCSharp.Services
 {
     public class BingSearchResult
     {
