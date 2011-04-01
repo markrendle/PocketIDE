@@ -8,6 +8,7 @@ using System.ComponentModel.Composition;
 using System.ServiceModel.Web;
 using System.Text;
 using System.Web;
+using Microsoft.WindowsAzure.StorageClient;
 using PocketIDE.Web.Data;
 using PocketIDE.Web.Sandbox;
 
@@ -89,7 +90,14 @@ namespace PocketIDE.Web.Code
         {
             var user = new UserContext().GetOrAdd(windowsLiveAnonymousId);
             var loader = NInjectFactory.Get<Loader>();
-            return loader.List(user.UserId).ToList();
+            try
+            {
+                return loader.List(user.UserId).ToList();
+            }
+            catch (StorageClientException)
+            {
+                return null;
+            }
         }
     }
 }

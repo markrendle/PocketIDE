@@ -5,12 +5,12 @@
     <DeploymentAccountName>InfinitePockets</DeploymentAccountName>
     <DeploymentHostedService>pocketide</DeploymentHostedService>
     <DeploymentHostedServiceLabel>Pocket IDE</DeploymentHostedServiceLabel>
-    <DeploymentSlot>Production</DeploymentSlot>
+    <DeploymentSlot>Staging</DeploymentSlot>
     <DeploymentIncludeIntellitrace>False</DeploymentIncludeIntellitrace>
     <DeploymentEnableWebDeploy>False</DeploymentEnableWebDeploy>
     <DeploymentStorageService>pocketide</DeploymentStorageService>
     <DeploymentStorageServiceLabel>pocketide</DeploymentStorageServiceLabel>
-    <DeploymentLabel>PocketIDE.Cloud - 21/03/2011 15:13:45</DeploymentLabel>
+    <DeploymentLabel>PocketIDE.Cloud - 01/04/2011 10:03:58</DeploymentLabel>
     <DeploymentPromptBeforeDeleting>True</DeploymentPromptBeforeDeleting>
     <DeploymentIsExpanded>False</DeploymentIsExpanded>
   </PropertyGroup>

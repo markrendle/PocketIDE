@@ -24,7 +24,7 @@ namespace PocketCSharp
         
         public static string GetWindowsLiveAnonymousId()
         {
-#if(DEBUG)
+#if(SPAFE)
             return "DEBUG";
 #else
             string result = string.Empty;
