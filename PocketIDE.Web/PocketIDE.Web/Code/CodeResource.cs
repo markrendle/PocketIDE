@@ -46,30 +46,30 @@ namespace PocketIDE.Web.Code
         }
 
         [WebInvoke(UriTemplate = "save", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
-        public void Save(Program program, HttpResponseMessage responseMessage)
+        public ServiceResponse Save(Program program, HttpResponseMessage responseMessage)
         {
             if (!program.IsTrusted())
             {
                 responseMessage.StatusCode = HttpStatusCode.Forbidden;
-                responseMessage.Content = new StringContent("Request does not appear to be from a trusted source.");
-                return;
+                return new ServiceResponse("Request does not appear to be from a trusted source.");
             }
 
             var code = Encoding.UTF8.GetString(Convert.FromBase64String(program.Code));
             var user = new UserContext().GetOrAdd(program.AuthorId);
             var saver = NInjectFactory.Get<Saver>();
             saver.Save(user.UserId.ToString("N"), program.Name, code);
+            return new ServiceResponse("Saved as " + program.Name);
         }
 
         [WebInvoke(UriTemplate = "publish", Method = "POST", ResponseFormat = WebMessageFormat.Json)]
         public string Publish(Program program, HttpResponseMessage responseMessage)
         {
-            if (!program.IsTrusted())
-            {
-                responseMessage.StatusCode = HttpStatusCode.Forbidden;
-                responseMessage.Content = new StringContent("Request does not appear to be from a trusted source.");
-                return string.Empty;
-            }
+            //if (!program.IsTrusted())
+            //{
+            //    responseMessage.StatusCode = HttpStatusCode.Forbidden;
+            //    responseMessage.Content = new StringContent("Request does not appear to be from a trusted source.");
+            //    return string.Empty;
+            //}
 
             var code = Encoding.UTF8.GetString(Convert.FromBase64String(program.Code));
             var user = new UserContext().GetOrAdd(program.AuthorId);

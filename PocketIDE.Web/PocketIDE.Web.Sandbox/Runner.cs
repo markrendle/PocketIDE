@@ -12,6 +12,16 @@ namespace PocketIDE.Web.Sandbox
 {
     public class Runner
     {
+        private static readonly string[] ConsoleAssemblyNames = new[]
+                                                                    {
+                                                                        "mscorlib.dll", "Microsoft.CSharp.dll",
+                                                                        "System.dll", "System.Core.dll",
+                                                                        "System.Data.dll", "System.Data.DataSetExtensions.dll",
+                                                                        "System.Xml.dll", "System.Xml.Linq.dll",
+                                                                    };
+
+        private static readonly Dictionary<string, string> CSharpCodeProviderOptions = new Dictionary<string, string>() { { "CompilerVersion", "v4.0" } };
+
         public bool CompileAndRun(string code, out string output)
         {
             var compiled = Compile(code);
@@ -38,9 +48,9 @@ namespace PocketIDE.Web.Sandbox
 
         private static CompilerResults Compile(string code)
         {
-            using (var csc = new CSharpCodeProvider(new Dictionary<string, string>() { { "CompilerVersion", "v4.0" } }))
+            using (var csc = new CSharpCodeProvider(CSharpCodeProviderOptions))
             {
-                var parameters = new CompilerParameters(new[] { "mscorlib.dll", "System.dll", "System.Core.dll" }) { IncludeDebugInformation = true, GenerateInMemory = true};
+                var parameters = new CompilerParameters(ConsoleAssemblyNames) { IncludeDebugInformation = true, GenerateInMemory = true};
                 var results = csc.CompileAssemblyFromSource(parameters, code);
                 return results;
             }

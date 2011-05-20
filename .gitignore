@@ -13,3 +13,4 @@ deploy
 *.swp
 *.testsettings
 TestResults/*
+Dotfuscated

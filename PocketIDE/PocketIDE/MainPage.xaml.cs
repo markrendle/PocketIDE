@@ -131,7 +131,9 @@ namespace PocketCSharp
             }
             else
             {
-                new CodeSaver().SaveAsync();
+                var saver = new CodeSaver();
+                saver.SaveLocal();
+                //saver.SaveAsync();
             }
         }
 

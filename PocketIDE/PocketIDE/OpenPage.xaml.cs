@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -27,48 +29,64 @@ namespace PocketCSharp
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
+            string[] localFiles;
+
+            MainListBox.Items.Clear();
+            using (var userStore = IsolatedStorageFile.GetUserStoreForApplication())
+            {
+                localFiles =
+                    userStore.GetFileNames().Where(
+                        s =>
+                        s.EndsWith(".cs", StringComparison.CurrentCultureIgnoreCase) &&
+                        !s.Equals("__current.cs", StringComparison.CurrentCultureIgnoreCase)).ToArray();
+            }
+
             var webClient = new WebClient();
             webClient.Headers[HttpRequestHeader.Accept] = "application/json";
             webClient.DownloadStringCompleted += ListDownloadStringCompleted;
-            webClient.DownloadStringAsync(UriFactory.Create("code/list/" + Code.GetWindowsLiveAnonymousId() + "?nocache=" + Environment.TickCount));
+            webClient.DownloadStringAsync(UriFactory.Create("code/list/" + Code.GetWindowsLiveAnonymousId() + "?nocache=" + Environment.TickCount), localFiles);
         }
 
         void ListDownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
-            ProgressBar.IsIndeterminate = false;
-            if (!string.IsNullOrEmpty(e.Result))
+            if (e.Error == null && !string.IsNullOrEmpty(e.Result))
             {
                 var reader = new JsonReader();
 
                 var result = reader.Read<IEnumerable<string>>(e.Result);
-                foreach (var name in result)
-                {
-                    MainListBox.Items.Add(name);
-                }
+                PopulateMainListBox(result);
             }
             else
             {
-                MessageBox.Show("No Saved code was found.");
-                NavigationService.GoBack();
+                var localFiles = e.UserState as string[];
+                if (localFiles != null && localFiles.Length > 0)
+                {
+                    PopulateMainListBox(localFiles);
+                }
+                else
+                {
+                    MessageBox.Show("No Saved code was found.");
+                    NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+                }
+            }
+        }
+
+        private void PopulateMainListBox(IEnumerable<string> result)
+        {
+            foreach (var name in result)
+            {
+                MainListBox.Items.Add(name);
             }
         }
 
         private void MainListBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var name = App.ViewModel.CodeEditorViewModel.SaveName = Regex.Replace(MainListBox.SelectedItem.ToString(), @"\.cs$", "");
-            var webClient = new WebClient();
-            webClient.Headers[HttpRequestHeader.Accept] = "application/json";
-            webClient.DownloadStringCompleted += OpenDownloadStringCompleted;
-            webClient.DownloadStringAsync(UriFactory.Create("code/open/" + Code.GetWindowsLiveAnonymousId() + "/" + name + "?nocache=" + Environment.TickCount));
-        }
-
-        private void OpenDownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
-        {
-            var reader = new JsonReader(new DataReaderSettings(
-                                            new ConventionResolverStrategy(
-                                                ConventionResolverStrategy.WordCasing.PascalCase)));
-            var program = reader.Read<Program>(e.Result);
-            App.ViewModel.CodeEditorViewModel.Code = Encoding.UTF8.GetString(Convert.FromBase64String(program.Code));
+            using (var userStore = IsolatedStorageFile.GetUserStoreForApplication())
+            using (var stream = userStore.OpenFile(MainListBox.SelectedItem.ToString(), FileMode.Open, FileAccess.Read))
+            using (var reader = new StreamReader(stream))
+            {
+                App.ViewModel.CodeEditorViewModel.Code = reader.ReadToEnd();
+            }
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
     }

@@ -148,6 +148,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ServiceResponse.cs" />
     <Compile Include="StringEx.cs" />
     <Compile Include="Support\ErrorResource.cs" />
   </ItemGroup>

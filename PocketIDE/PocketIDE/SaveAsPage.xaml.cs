@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Windows;
@@ -24,12 +25,20 @@ namespace PocketCSharp
         {
             App.ViewModel.CodeEditorViewModel.SaveName = SaveNameTextBox.Text;
             var saver = new CodeSaver();
-            saver.SaveCompleted += SaveCompleted;
-            saver.SaveAsync();
+            saver.SaveLocal();
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
 
-        void SaveCompleted(object sender, EventArgs e)
+        void SaveCompleted(object sender, SaveCompletedEventArgs e)
         {
+            if (e.Error != null)
+            {
+                MessageBox.Show(e.Error.Message);
+            }
+            else
+            {
+                MessageBox.Show(e.Message);
+            }
             NavigationService.GoBack();
         }
 

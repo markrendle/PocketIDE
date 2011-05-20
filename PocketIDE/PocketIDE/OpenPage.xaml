@@ -20,9 +20,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Controls:PerformanceProgressBar x:Name="ProgressBar"
-                                         IsIndeterminate="True" />
-
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="1" Margin="12,17,0,28">
             <TextBlock x:Name="ApplicationTitle" Text="POCKET C#" Style="{StaticResource PhoneTextNormalStyle}"/>
